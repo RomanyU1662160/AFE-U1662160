@@ -1,6 +1,6 @@
 import React , {Fragment} from 'react';
-import Header from '../components/header/Header'
-import TabGroup from './tabs/TabGroup';
+import Header from '../../header/Header'
+import TabGroup from '../../tabs/TabGroup';
 
 
 

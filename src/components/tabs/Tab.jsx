@@ -14,7 +14,7 @@ export default function Tab(props){
       <InputItem  type={type} name={name} id={id} label={label}></InputItem>
       <InputLabel htmlFor={id} onClick={()=>showContent(id+'content')}  >{ label }</InputLabel>
       <TabContent id={id+'content'}> {flight} {label} </TabContent>
-   </Fragment>
+     </Fragment>
     )
 }
 
