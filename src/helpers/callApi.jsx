@@ -5,11 +5,7 @@ export const ApiURL = 'https://opensky-network.org/api/flights/arrival?airport=E
 
 async function callApi() {
 	try {
-		const flights = await Axios.get(ApiURL).then((res) => {
-			console.log(res.data);
-			return res.data;
-		});
-		return flights;
+		return await Axios.get(ApiURL);
 	} catch (e) {
 		console.log(e);
 	}
