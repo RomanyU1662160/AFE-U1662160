@@ -1,7 +1,7 @@
 import React from 'react'
 import {StyledHeader , Wrapper} from './style';
 import MainNav from '../main-nav/MainNav';
-import { Theme } from '../../Styles/themes/Theme';
+import { Theme } from '../../../Styles/themes/Theme';
 
 
 export default function Header() {

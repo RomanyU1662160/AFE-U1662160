@@ -23,7 +23,7 @@ export const InputLabel = styled.label `
     order: -1;
     font-weight: 900;
     display: inline-block;
-    background-color: gray;
+    background-color: ${props => props.color ? props.color : 'darkgray'}; 
     text-align: center;
     cursor: pointer;
     color: rgb(250, 195, 43);
