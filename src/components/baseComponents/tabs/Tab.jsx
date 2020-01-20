@@ -12,8 +12,7 @@ export default function Tab(props) {
 				{label}
 			</InputLabel>
 			<TabContent id={id + 'content'}>
-				{' '}
-				{flight} {label}{' '}
+				{flight} {label}
 			</TabContent>
 		</Fragment>
 	);

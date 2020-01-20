@@ -1,18 +1,16 @@
 import React, { Fragment } from 'react';
 import { Card, CardTitle, CardSubtitle } from 'reactstrap';
 import TabGroup from '../baseComponents/tabs/TabGroup';
-import Flights from '../../helpers/callApi';
+import CallApi from '../../helpers/callApi';
 
 const Flight = (props) => {
-	const data = Flights;
 	const { flight } = props;
-	console.log(data);
 
 	return (
 		<Fragment>
-			<Card flight={data}>
-				<CardTitle> Call sign </CardTitle>
-				<CardSubtitle> Card subtitle </CardSubtitle>
+			<Card>
+				<CardTitle> {flight.name} </CardTitle>
+				<CardSubtitle> {flight.capital} </CardSubtitle>
 				<TabGroup />
 			</Card>
 		</Fragment>
