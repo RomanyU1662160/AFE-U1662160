@@ -8,10 +8,10 @@ const Flight = (props) => {
 
 	return (
 		<Fragment>
-			<Card>
-				<CardTitle> {flight.name} </CardTitle>
+			<Card  body outline color="danger">
+				<CardTitle> <h3 color="text-info">{flight.name} </h3>  </CardTitle>
 				<CardSubtitle> {flight.capital} </CardSubtitle>
-				<TabGroup />
+				 <TabGroup groupId={flight.name} ></TabGroup>
 			</Card>
 		</Fragment>
 	);

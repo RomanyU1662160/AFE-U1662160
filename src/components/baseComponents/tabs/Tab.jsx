@@ -20,7 +20,7 @@ export default function Tab(props) {
 
 const showContent = (content) => {
 	const tabContent = document.querySelector(`#${content}`);
-	hideOtherContents(content);
+	hideOtherContents(`#${content}`);
 	return (tabContent.style.display = 'block');
 };
 

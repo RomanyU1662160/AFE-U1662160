@@ -2,12 +2,16 @@ import React from 'react';
 import { StyledTab } from './style';
 import Tab from './Tab';
 
-const TabGroup = () => {
+const TabGroup = (props) => {
+	const{groupId} = props
+	
 	return (
 		<StyledTab>
-			<Tab type="radio" id="flight" name="flight" label="Flight" />
-			<Tab type="radio" id="info" name="flight" label="Info" />
-			<Tab type="radio" id="maps" name="flight" label="Maps" />
+			<Tab type="radio" id={"flight"+groupId} name="flight"   label="Flight" />
+			<hr/>
+			<Tab type="radio" id={"info"+groupId}   name="flight"   label="Info" />
+			<hr/>
+			<Tab type="radio" id={"maps"+groupId}   name="flight"   label="Maps" />
 		</StyledTab>
 	);
 };
