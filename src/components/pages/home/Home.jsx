@@ -6,8 +6,8 @@ import Flights from '../../flights/Flights';
 const Home = () => {
 	return (
 		<Fragment>
-			<Header> </Header>
-			<Flights> </Flights>
+			<Header />
+			<Flights />
 		</Fragment>
 	);
 };
