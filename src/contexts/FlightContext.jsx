@@ -2,7 +2,7 @@ import React, { createContext, useState, useEffect } from 'react';
 import callApi from "../helpers/callApi.js"
 
 export const FlightsContext = createContext();
-
+/*
 const Data = [
 	{
 		"name": "3c4ad0",
@@ -33,7 +33,7 @@ const Data = [
 		"arrivalAirportCandidatesCount": 0
 	}
 
-];
+];*/
 
 const FlightsProvider = (props) => {
 	const { children } = props;
@@ -42,14 +42,17 @@ const FlightsProvider = (props) => {
 	useEffect(() => {
 		const fetchFlights = async () => {
 			const {flights: data} = await callApi();
+			console.log(data);
 			setFlights(data);
 		}
 		fetchFlights();
 	}, []);
-	
+
 
 	if (!flights) {
+		
 		return <div>Loading please wait...</div>
+		
 	}
 
 	console.log(flights);

@@ -5,15 +5,12 @@ import { FlightsContext } from '../../contexts/FlightContext';
 
 const Flights = (props) => {
 	const ContextFlights = useContext(FlightsContext);
+	const flightList = ContextFlights.Data.map(flight => <Flight flight={flight} />);
 
-	// useEffect(() => {
-	// 	console.log('Use Effect ran ', ContextFlights.Data);
-	// });
+	
 	return (
 		<Wrapper>
-			{ContextFlights.Data.map((flight) => {
-				return <Flight flight={flight}> </Flight>;
-			})}
+			{flightList}
 		</Wrapper>
 	);
 };
