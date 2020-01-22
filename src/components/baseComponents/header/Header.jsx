@@ -1,15 +1,25 @@
-import React from 'react'
+import React, {useContext,useEffect} from 'react'
 import {StyledHeader , Wrapper} from './style';
 import MainNav from '../main-nav/MainNav';
-import { Theme } from '../../../Styles/themes/Theme';
+import {ThemeContext} from '../../../contexts/ThemeContext';
 
 
-export default function Header() {
+
+ const  Header = (props) =>{
+   const themeContext =  useContext(ThemeContext); 
+   const {theme , isDefault ,toggleTheme} = themeContext; 
+
+   useEffect( () => {
+    console.log(theme);
+}); 
+
     return (
         <Wrapper> 
-            <StyledHeader theme={Theme}> 
-             <MainNav theme={Theme}> </MainNav>
+            <StyledHeader activeTheme ={theme}> 
+             <MainNav> </MainNav>
             </StyledHeader>
         </Wrapper> 
     )
 }
+
+export default Header; 

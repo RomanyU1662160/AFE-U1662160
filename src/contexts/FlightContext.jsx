@@ -42,7 +42,7 @@ const FlightsProvider = (props) => {
 	useEffect(() => {
 		const fetchFlights = async () => {
 			const {flights: data} = await callApi();
-			console.log(data);
+			// console.log(data);
 			setFlights(data);
 		}
 		fetchFlights();
@@ -55,7 +55,7 @@ const FlightsProvider = (props) => {
 		
 	}
 
-	console.log(flights);
+	// console.log(flights);
 	return <FlightsContext.Provider value={{ Data: flights }}>{children}</FlightsContext.Provider>;
 };
 
