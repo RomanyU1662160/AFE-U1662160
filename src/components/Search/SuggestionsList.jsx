@@ -1,24 +1,16 @@
 import React, { Fragment, useContext, useEffect } from 'react';
 import Suggestion from './Suggestion';
-import { SearchContext } from '../../contexts/SearchContext';
+import { StyledSuggestion } from './style';
 
 const SuggestionsList = (props) => {
 	const { list } = props;
-	// useEffect( () => {
-	//     console.log(  "Suggestions :: ",suggestions);
-
-	// } )
 
 	return (
 		<Fragment>
 			<ul>
 				{list.length > 0 ? (
 					list.map((suggestion) => {
-						return (
-							<Suggestion key={suggestion} suggestion={suggestion}>
-								{' '}
-							</Suggestion>
-						);
+						return <Suggestion key={suggestion} suggestion={suggestion} />;
 					})
 				) : (
 					<p> No Results found </p>

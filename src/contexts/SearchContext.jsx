@@ -7,7 +7,7 @@ const SearchProvider = (props) => {
 		'Manchester United ',
 		'Liverpool',
 		'Arsenal',
-		'Manchester city',
+		'Manchester City',
 		'Briton',
 		'Everton',
 		'Brighton',

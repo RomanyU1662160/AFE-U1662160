@@ -18,8 +18,9 @@ const SearchInput = (props) => {
 				<div className="form-group">
 					<input
 						type="text"
-						className="form-control"
+						className="form-control m-3 "
 						onChange={(e) => handleFilterSearch(e.target.value)}
+						placeholder="Search Teams.."
 						autoFocus
 					/>
 					<SuggestionsList list={MatchedData}> </SuggestionsList>
