@@ -13,7 +13,6 @@ background-color: ${(props)=> props.activeTheme.bg ? props.activeTheme.bg : '#33
 color:   ${(props)=> props.activeTheme.color ? props.activeTheme.color : 'black'};
 padding:5%;
 flex: 1 1 100%; 
-border:solid 1px red;
 flex-flow: row wrap;
 `
 
