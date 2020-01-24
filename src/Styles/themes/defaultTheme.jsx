@@ -1,5 +1,5 @@
 export const defaultTheme = {
-	color: 'darkgreen',
-	bg: 'lightgray',
+	color: '#ffc107',
+	bg: '#6c757d',
 	ui: 'black'
 };

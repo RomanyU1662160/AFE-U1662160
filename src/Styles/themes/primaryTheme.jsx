@@ -1,4 +1,5 @@
- export const primaryTheme = {
-    color: "#ddd",
-    bg: "black",
-}
+export const primaryTheme = {
+	color: '#ddd',
+	bg: 'black',
+	ui: 'white'
+};

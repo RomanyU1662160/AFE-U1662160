@@ -3,8 +3,8 @@ import styled from 'styled-components';
 export const Wrapper = styled.div`
 display: flex; 
 flex-flow: column wrap;
-background-color: ${props => props.theme.bg ? props.theme.bg : "lightgray"};
-color:${props => props.theme.color ? props.theme.color : "white"};
+background-color: ${props => props.bg ? props.bg : props.theme.bg};
+color:${props => props.color ? props.color : props.theme.color};
 justify-content:flex-start;
 @media(max-width:750px){
 display:none;

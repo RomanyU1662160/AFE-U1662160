@@ -3,24 +3,29 @@ import Suggestion from './Suggestion';
 import { SearchContext } from '../../contexts/SearchContext';
 
 const SuggestionsList = (props) => {
- 
-    const {suggestions} = useContext(SearchContext); 
-useEffect( () => {
-    console.log(  "Suggestions :: ",suggestions);
-    
-} )
+	const { list } = props;
+	// useEffect( () => {
+	//     console.log(  "Suggestions :: ",suggestions);
 
-    return ( 
-        <Fragment>  
-            <ul>
-            { suggestions.length > 0 ?  suggestions.map( suggestion => { 
-               return  <Suggestion key={suggestion} suggestion= {suggestion}> </Suggestion> 
-            })   :
-            <p> No Results found </p>}
-            </ul>
+	// } )
 
-        </Fragment>
-     );
-}
- 
+	return (
+		<Fragment>
+			<ul>
+				{list.length > 0 ? (
+					list.map((suggestion) => {
+						return (
+							<Suggestion key={suggestion} suggestion={suggestion}>
+								{' '}
+							</Suggestion>
+						);
+					})
+				) : (
+					<p> No Results found </p>
+				)}
+			</ul>
+		</Fragment>
+	);
+};
+
 export default SuggestionsList;
