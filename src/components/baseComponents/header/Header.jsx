@@ -8,9 +8,9 @@ const Header = (props) => {
 	const themeContext = useContext(ThemeContext);
 	const { theme, isDefault, toggleTheme } = themeContext;
 
-	useEffect(() => {
-		console.log(theme);
-	});
+	// useEffect(() => {
+	// 	console.log(theme);
+	// });
 
 	return (
 		<Fragment>

@@ -4,12 +4,12 @@ import { Wrapper, StyledToggleThemeButton } from './style';
 
 const ToggleTheme = (props) => {
 	const { toggleTheme, theme } = useContext(ThemeContext);
-	useEffect(() => {
-		console.log(theme);
-	});
+	// useEffect(() => {
+	// 	console.log(theme);
+	// });
 	return (
 		<Wrapper theme={theme}>
-			<StyledToggleThemeButton onClick={toggleTheme} theme={theme} bg="darkgreen" color="white">
+			<StyledToggleThemeButton onClick={toggleTheme} theme={theme} color="#ffc107">
 				Toggle Theme
 			</StyledToggleThemeButton>
 		</Wrapper>
