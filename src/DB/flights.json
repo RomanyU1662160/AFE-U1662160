@@ -1,0 +1,30 @@
+[
+	{
+		"name": "3c4ad0",
+		"firstSeen": "1517230790",
+		"estDepartureAirport": "EDDF",
+		"lastSeen": "1517238306",
+		"estArrivalAirport": null,
+		"callsign": "DLH630",
+		"estDepartureAirportHorizDistance": 4319,
+		"estDepartureAirportVertDistance": 65,
+		"estArrivalAirportHorizDistance": null,
+		"estArrivalAirportVertDistance": null,
+		"departureAirportCandidatesCount": 1,
+		"arrivalAirportCandidatesCount": 0
+	},
+	{
+		"name": "3c4ad1",
+		"firstSeen": "1517230790",
+		"estDepartureAirport": "EDDF",
+		"lastSeen": "1517238306",
+		"estArrivalAirport": null,
+		"callsign": "DLH630",
+		"estDepartureAirportHorizDistance": 4319,
+		"estDepartureAirportVertDistance": 65,
+		"estArrivalAirportHorizDistance": null,
+		"estArrivalAirportVertDistance": null,
+		"departureAirportCandidatesCount": 1,
+		"arrivalAirportCandidatesCount": 0
+	}
+]

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { InputItem, InputLabel, TabContent } from './style';
 
 export default function Tab(props) {
-	const { type, name, id, label, flight } = props;
+	const { type, name, id, label, content } = props;
 
 	return (
 		<Fragment>
@@ -11,9 +11,7 @@ export default function Tab(props) {
 			<InputLabel htmlFor={id} onClick={() => showContent(id + 'content')}>
 				{label}
 			</InputLabel>
-			<TabContent id={id + 'content'}>
-				{flight} {label}
-			</TabContent>
+			<TabContent id={id + 'content'}>{content}</TabContent>
 		</Fragment>
 	);
 }
