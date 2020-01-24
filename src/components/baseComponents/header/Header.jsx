@@ -9,9 +9,9 @@ import {ThemeContext} from '../../../contexts/ThemeContext';
    const themeContext =  useContext(ThemeContext); 
    const {theme , isDefault ,toggleTheme} = themeContext; 
 
-   useEffect( () => {
-    console.log(theme);
-}); 
+//    useEffect( () => {
+//     console.log(theme);
+// }); 
 
     return (
         <Wrapper> 

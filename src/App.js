@@ -4,17 +4,18 @@ import './App.css';
 import Home from './components/pages/home/Home';
 import FlightsProvider from "./contexts/FlightContext";
 import ThemeContextProvider from './contexts/ThemeContext';
+import SearchProvider from './contexts/SearchContext';
 
 function App() {
   return (
    
-      <div className="App">
-   <ThemeContextProvider> 
-       <FlightsProvider> 
-          <Home></Home>
-        </FlightsProvider>
+    <div className="App">
+      <SearchProvider> 
+        <ThemeContextProvider> 
+                <Home></Home>
         </ThemeContextProvider>
-      </div>
+      </SearchProvider>
+    </div>
     
       );
 
