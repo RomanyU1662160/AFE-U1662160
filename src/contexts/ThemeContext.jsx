@@ -18,7 +18,7 @@ const ThemeContextProvider = (props) => {
 		setIsDefault(!isDefault);
 	};
 
-	return <ThemeContext.Provider value={{ theme, toggleTheme }}> {children} </ThemeContext.Provider>;
+	return <ThemeContext.Provider value={{ theme, toggleTheme ,isDefault}}> {children} </ThemeContext.Provider>;
 };
 
 export default ThemeContextProvider;
