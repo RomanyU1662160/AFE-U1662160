@@ -1,32 +1,37 @@
 import React, { createContext, useEffect, useState } from 'react';
+import callApi from '../helpers/callApi';
+import MockTeams from '../mock/MockTeams';
+
 
 export const SearchContext = createContext();
 
 const SearchProvider = (props) => {
-	const init = [
-		'Manchester United ',
-		'Liverpool',
-		'Arsenal',
-		'Manchester City',
-		'Briton',
-		'Everton',
-		'Brighton',
-		'West Ham'
-	];
+	
 	const { children } = props;
-	const [ data, setData ] = useState(init);
+	const [ data, setData ] = useState([]);
 
-	const filterResults = (userInput = '') => {
-		const filteredResults = data.filter((item) => {
-			console.log(userInput);
-			const searchterm = userInput.toLowerCase();
-			return item.toLowerCase().includes(searchterm);
-		});
+	useEffect( () => {
+		//const init = callApi().then( res => setData(res) ); 
+		setData(MockTeams);
+		
+	}, [] ); 
+
+	
+
+	const filterResults = (userInput) => {
+		let filteredResults = [];
+		if(userInput){
+			 filteredResults = data.filter((item) => {
+				const searchterm = userInput.toLowerCase();
+				return item.team.name.toLowerCase().includes(searchterm);
+			});
+		}
+	
 		return filteredResults;
 	};
 
 	return (
-		<SearchContext.Provider value={{ suggestions: data ? data : [], filterResults, setData }}>
+		<SearchContext.Provider value={{  data , filterResults, setData }}>
 			{children}
 		</SearchContext.Provider>
 	);

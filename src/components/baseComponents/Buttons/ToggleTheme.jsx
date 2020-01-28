@@ -4,9 +4,9 @@ import { Wrapper, StyledToggleThemeButton } from './style';
 
 const ToggleTheme = (props) => {
 	const { isDefault, toggleTheme, theme } = useContext(ThemeContext);
-	useEffect(() => {
-		console.log(isDefault);
-	});
+	// useEffect(() => {
+	// 	console.log(isDefault);
+	// });
 	return (
 		<Wrapper theme={theme}>
 			<StyledToggleThemeButton onClick={toggleTheme} theme={theme} color="#ffc107">
