@@ -1,32 +1,38 @@
 import React, { Fragment, useEffect, useState, useContext } from 'react';
 import SuggestionsList from './SuggestionsList';
+import {Input,FormGroup} from 'reactstrap'; 
+
 import { SearchContext } from '../../contexts/SearchContext';
 
+
 const SearchInput = (props) => {
-	const { suggestions, filterResults, setData } = useContext(SearchContext);
-	const [ MatchedData, setMatchedData ] = useState(suggestions);
+	const { data, filterResults, setData } = useContext(SearchContext);
+	const [ MatchedData, setMatchedData ] = useState(data);
+	
+
 
 	const handleFilterSearch = (input) => {
 		const results = filterResults(input);
 
+console.log("results", results );
 		return setMatchedData(results);
 	};
 	return (
-		<Fragment>
+		<>
 			<div className="container">
-				<h3> Search Form </h3>
-				<div className="form-group">
-					<input
+				<h3 className="text-center"> Search Form </h3>
+				<FormGroup>
+					<Input
 						type="text"
-						className="form-control m-3 "
 						onChange={(e) => handleFilterSearch(e.target.value)}
 						placeholder="Search Teams.."
 						autoFocus
 					/>
-					<SuggestionsList list={MatchedData}> </SuggestionsList>
+					<SuggestionsList suggestions={MatchedData}> </SuggestionsList>
+					</FormGroup>
 				</div>
-			</div>
-		</Fragment>
+				
+		</>
 	);
 };
 

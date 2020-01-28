@@ -1,20 +1,29 @@
 
-import axios from 'axios';
-// export const ApiURL = 'http://aviation-edge.com/v2/public/timetable?key=acb04d-fb6668&iataCode=JFK&type=departure';
-
-export const ApiURL = 'https://opensky-network.org/api/flights/arrival?airport=EDDL&begin=1517227200&end=1517230800';
 
 
-const mockUrl = '../flights.json';
+ export const ApiURL = "https://api-football-beta.p.rapidapi.com/teams?league=2"; 
+  
+ //export const ApiURL = "https://free-football-soccer-videos.p.rapidapi.com/"; 
+
+ 
 
 async function callApi()
 {
 	try {
-		const response = await fetch(mockUrl);
+		const response = await fetch(ApiURL, {
+		"method" : "GET", 
+		"headers": {
+			 "x-rapidapi-host": "api-football-beta.p.rapidapi.com",
+		      // "x-rapidapi-host": "free-football-soccer-videos.p.rapidapi.com",
+               "x-rapidapi-key": "b42ff9aec1mshf038ebfe4dc2a03p1fb971jsn092088567d66"
+		}	
+		})
+		
 
-		const data = await response.json();
-
-		return data;
+		 const data = await response.json();
+		console.log(data);
+		return data.response;
+		
 	} catch (e) {
 		console.log(e);
 	}
