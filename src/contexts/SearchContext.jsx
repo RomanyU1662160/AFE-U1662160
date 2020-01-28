@@ -9,14 +9,15 @@ const SearchProvider = (props) => {
 	
 	const { children } = props;
 	const [ data, setData ] = useState([]);
+	const [ isLoading, setIsLoading ] = useState(false);
 
-	useEffect( () => {
-		//const init = callApi().then( res => setData(res) ); 
-		setData(MockTeams);
-		
+	useEffect(() => {
+		setIsLoading(true)
+		setTimeout(() => {
+			callApi().then( res => setData(res) ); 
+			setIsLoading(false)
+		}, 3000);
 	}, [] ); 
-
-	
 
 	const filterResults = (userInput) => {
 		let filteredResults = [];
@@ -31,7 +32,7 @@ const SearchProvider = (props) => {
 	};
 
 	return (
-		<SearchContext.Provider value={{  data , filterResults, setData }}>
+		<SearchContext.Provider value={{  data , filterResults, setData, isLoading }}>
 			{children}
 		</SearchContext.Provider>
 	);

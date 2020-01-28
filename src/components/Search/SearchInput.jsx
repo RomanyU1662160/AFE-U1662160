@@ -6,17 +6,17 @@ import { SearchContext } from '../../contexts/SearchContext';
 
 
 const SearchInput = (props) => {
-	const { data, filterResults, setData } = useContext(SearchContext);
+	const { data, filterResults, setData, isLoading } = useContext(SearchContext);
 	const [ MatchedData, setMatchedData ] = useState(data);
-	
 
+	console.log(isLoading)
 
 	const handleFilterSearch = (input) => {
 		const results = filterResults(input);
-
-console.log("results", results );
+		console.log("results", results );
 		return setMatchedData(results);
 	};
+
 	return (
 		<>
 			<div className="container">
@@ -28,7 +28,8 @@ console.log("results", results );
 						placeholder="Search Teams.."
 						autoFocus
 					/>
-					<SuggestionsList suggestions={MatchedData}> </SuggestionsList>
+
+					<SuggestionsList suggestions={MatchedData} isLoading={isLoading}> </SuggestionsList>
 					</FormGroup>
 				</div>
 				
