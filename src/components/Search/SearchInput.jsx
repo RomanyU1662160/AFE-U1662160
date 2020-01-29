@@ -1,19 +1,20 @@
-import React, { Fragment, useEffect, useState, useContext } from 'react';
+import React, {Fragment, useEffect, useState, useContext} from 'react';
 import SuggestionsList from './SuggestionsList';
-import {Input,FormGroup} from 'reactstrap'; 
+import {Input, FormGroup} from 'reactstrap';
+import {TextInput } from 'react-materialize'; 
 
-import { SearchContext } from '../../contexts/SearchContext';
+import {SearchContext} from '../../contexts/SearchContext';
 
 
 const SearchInput = (props) => {
-	const { data, filterResults, setData, isLoading } = useContext(SearchContext);
-	const [ MatchedData, setMatchedData ] = useState(data);
+	const {data, filterResults, setData, isLoading} = useContext(SearchContext);
+	const [MatchedData, setMatchedData] = useState(data);
 
-	console.log(isLoading)
+	
 
 	const handleFilterSearch = (input) => {
 		const results = filterResults(input);
-		console.log("results", results );
+		console.log("results", results);
 		return setMatchedData(results);
 	};
 
@@ -22,17 +23,25 @@ const SearchInput = (props) => {
 			<div className="container">
 				<h3 className="text-center"> Search Form </h3>
 				<FormGroup>
-					<Input
-						type="text"
-						onChange={(e) => handleFilterSearch(e.target.value)}
-						placeholder="Search Teams.."
-						autoFocus
-					/>
+					<div className="input-field">
+						<Input
+						className="validate"
+							type="text"
+							onChange={(e) => handleFilterSearch(e.target.value)}
+							placeholder="Search Teams.."
+							autoFocus
+						/>
+						 <label htmlFor="first_name">Search Teams </label>
 
+					
+					</div>
+					
 					<SuggestionsList suggestions={MatchedData} isLoading={isLoading}> </SuggestionsList>
-					</FormGroup>
-				</div>
-				
+				</FormGroup>
+		
+			</div>
+
+
 		</>
 	);
 };

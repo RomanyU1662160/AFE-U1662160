@@ -7,8 +7,8 @@ import SearchInput from '../../Search/SearchInput';
 const Home = () => {
 	return (
 		<Fragment>
-			<Header />
 		 <SearchInput></SearchInput>
+		
 		</Fragment>
 	);
 };

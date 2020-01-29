@@ -15,6 +15,7 @@ const MainNav = (props) => {
 	return (
 		<StyledMainNav activeTheme={theme}>
 			<NavItem title="Home"> </NavItem>
+			<NavItem title="Teams"> </NavItem>
 			<NavItem title="Search"> </NavItem>
 			<NavItem title="About"> </NavItem>
 		</StyledMainNav>
