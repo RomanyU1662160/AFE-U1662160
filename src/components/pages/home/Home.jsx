@@ -2,13 +2,17 @@ import React, { Fragment } from 'react';
 import Header from '../../baseComponents/header/Header';
 // import TabGroup from '../../baseComponents/tabs/TabGroup';
 import Flights from '../../flights/Flights';
-import SearchInput from '../../Search/SearchInput';
 
 const Home = () => {
 	return (
 		<Fragment>
-			<Header />
-		 <SearchInput></SearchInput>
+			<h3> Home page </h3>
+			<p>
+				{' '}
+				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, aliquam. Amet eaque odit nostrum
+				molestiae optio, recusandae doloribus necessitatibus laborum qui minus cupiditate tempora aliquam natus?
+				Voluptate beatae nulla aperiam.
+			</p>
 		</Fragment>
 	);
 };

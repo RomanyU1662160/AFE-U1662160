@@ -1,11 +1,16 @@
-import React from 'react';
-import {StyledNavItem} from './style'; 
+import React  ,{useContext} from 'react';
+import { StyledNavlink } from './style';
+import {ThemeContext} from '../../../contexts/ThemeContext';
 
 const NavItem = (props) => {
-    const { title} = props;
-    return (
-        <StyledNavItem> {title} </StyledNavItem>
-    );
-}
+    const { title } = props;
+    const {theme} = useContext(ThemeContext)
+ 	return (
+	
+			<>
+			<StyledNavlink theme={theme} to={'/' + title}> {title}  </StyledNavlink>
+		</>
+	);
+};
 
 export default NavItem;

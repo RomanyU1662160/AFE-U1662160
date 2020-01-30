@@ -1,7 +1,9 @@
 import styled from 'styled-components';
+import {NavLink} from 'react-router-dom'; 
 
-export const StyledNavItem = styled.div`
 
+
+export const StyledNavlink = styled(NavLink)`
 flex: auto;
 border: solid 1px white;
 color: ${props => props.theme.color};
