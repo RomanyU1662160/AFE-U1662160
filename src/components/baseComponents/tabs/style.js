@@ -1,4 +1,4 @@
-import styled from 'styled-components'; 
+import styled from 'styled-components';
 
 
 export const StyledTab = styled.div`
@@ -19,14 +19,15 @@ export const InputItem = styled.input`
  color:blue;
 `
 
-export const InputLabel = styled.label `
+export const InputLabel = styled.label`
     order: -1;
     font-weight: 900;
     display: inline-block;
-    background-color: ${props => props.color ? props.color : 'darkgray'}; 
+     background-color: ${(props) => props.theme.bg ? props.theme.bg : '#336699'};
+     color:   ${(props) => props.theme.color ? props.theme.color : 'black'};
     text-align: center;
     cursor: pointer;
-    color: rgb(250, 195, 43);
+   
     padding: 0.5em;
     border-right: 1px solid white;
     flex: auto;
@@ -37,9 +38,8 @@ export const InputLabel = styled.label `
         }; 
 `
 
-export const TabContent = styled.div `
+export const TabContent = styled.div`
     padding: 1%;
-    background-color: rgb(230, 230, 230);
     display: none;
     width: 100%; 
 `

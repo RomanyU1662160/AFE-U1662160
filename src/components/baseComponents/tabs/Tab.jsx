@@ -1,17 +1,32 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 
 import { InputItem, InputLabel, TabContent } from './style';
+import { ThemeContext } from '../../../contexts/ThemeContext';
 
 export default function Tab(props) {
 	const { type, name, id, label, content } = props;
+	const { theme } = useContext(ThemeContext);
+	useEffect(() => {
+		console.log(theme.color);
+	});
 
 	return (
 		<Fragment>
 			<InputItem type={type} name={name} id={id} label={label} />
-			<InputLabel htmlFor={id} onClick={() => showContent(id + 'content')}>
+			<InputLabel theme={theme} htmlFor={id} onClick={() => showContent(id + 'content')}>
 				{label}
 			</InputLabel>
-			<TabContent id={id + 'content'}>{content}</TabContent>
+
+			<TabContent id={id + 'content'}>
+				{Object.entries(content).map(([ key, value ]) => {
+					return (
+						<div className="row border-bottom" key={value}>
+							<div className="col-md-6"> {key.toUpperCase()} : </div>
+							<div className="col-md-6"> {value}</div>
+						</div>
+					);
+				})}
+			</TabContent>
 		</Fragment>
 	);
 }

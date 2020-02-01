@@ -4,9 +4,9 @@ import Team from './Team';
 
 const TeamsList = (props) => {
 	const { teams } = useContext(TeamsContext);
-	useEffect(() => {
-		console.log(teams);
-	});
+	// useEffect(() => {
+	// 	console.log(teams);
+	// });
 	return (
 		<Fragment>
 			{teams.map((team) => {

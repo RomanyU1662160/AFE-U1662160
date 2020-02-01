@@ -9,11 +9,11 @@ const SearchInput = (props) => {
 	const { data, filterResults, setData, isLoading } = useContext(SearchContext);
 	const [ MatchedData, setMatchedData ] = useState(data);
 
-	console.log(isLoading)
+	// console.log(isLoading)
 
 	const handleFilterSearch = (input) => {
 		const results = filterResults(input);
-		console.log("results", results );
+		// console.log("results", results );
 		return setMatchedData(results);
 	};
 
