@@ -1,30 +1,29 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { SearchContext } from '../../../contexts/SearchContext';
 import TabGroup from '../../baseComponents/tabs/TabGroup';
+import TeamChart from '../../charts/TeamChart';
+import TeamStaticsBtn from '../../baseComponents/Buttons/TeamStaticsBtn';
+
 
 
 const TeamPage = () => {
-	const { team } = useContext(SearchContext);
+	const { team, getTeamStatics, setTeam} = useContext(SearchContext);
 	// const [theTeam, setTheteam] = useState({})
 	
-	// useEffect( () => {
-	// 	localStorage.setItem('team' , JSON.stringify(team))
-	// 	const localTeam = localStorage.getItem(JSON.parse('team'))
-	//     // localTeam ? setTheteam(localTeam): setTheteam(team);
-	// 	console.log("theTeam::",  theTeam);
-	// },[] )
 
 	useEffect(() => {
-		console.log(team);
-		
+		const StorageTeam = localStorage.getItem('localStorageTeam');
+		const localStorageTeam = JSON.parse(StorageTeam);
+
 	} )
-
-
-	return(
+	
+	
+	return (
 	<>
 	<h3 className="text-info text-center"> Welcome to {team.team.name}'s page  </h3>
+     	<TeamStaticsBtn   />
+		
 		<TabGroup team={team} groupId={team.team.id} ></TabGroup>
-
 	</>
 	)
 

@@ -9,16 +9,19 @@ const ThemeContextProvider = (props) => {
 	const [ theme, setTheme ] = useState(defaultTheme);
 	const [ isDefault, setIsDefault ] = useState(true);
 
-	useEffect(() => {
-		isDefault ? setTheme(defaultTheme) : setTheme(darkTheme);
-	});
+	useEffect(
+		() => {
+			isDefault ? setTheme(defaultTheme) : setTheme(darkTheme);
+		},
+		[ isDefault, defaultTheme, darkTheme ]
+	);
 
 	const toggleTheme = () => {
 		console.log(isDefault);
 		setIsDefault(!isDefault);
 	};
 
-	return <ThemeContext.Provider value={{ theme, toggleTheme ,isDefault}}> {children} </ThemeContext.Provider>;
+	return <ThemeContext.Provider value={{ theme, toggleTheme, isDefault }}> {children} </ThemeContext.Provider>;
 };
 
 export default ThemeContextProvider;
