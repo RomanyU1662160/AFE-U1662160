@@ -3,22 +3,16 @@ import { Wrapper, StyledToggleThemeButton } from './style';
 import { ThemeContext } from '../../../contexts/ThemeContext';
 import { SearchContext } from '../../../contexts/SearchContext';
 
-const TeamStaticsBtn = () => {
+const TeamStaticsBtn = (props) => {
 	const { theme } = useContext(ThemeContext);
-	const { getTeamStatics } = useContext(SearchContext);
-
-	const handleGetStatics = () => {
-		const teamStatics = getTeamStatics();
-		console.log('teamStatics In BTN ', teamStatics);
-		return teamStatics;
-	};
+	const { btnRole } = props;
 
 	return (
 		<Wrapper>
-			<StyledToggleThemeButton theme={theme} color="#ffc107" onClick={handleGetStatics}>
+			<StyledToggleThemeButton theme={theme} color="#ffc107" onClick={btnRole}>
 				Get Team Statics
 			</StyledToggleThemeButton>
-		</Wrapper>
+		         </Wrapper>
 	);
 };
 

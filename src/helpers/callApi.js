@@ -19,9 +19,6 @@ async function callApi()
 				// "x-rapidapi-host": "free-football-soccer-videos.p.rapidapi.com",
 				"x-rapidapi-key": "b42ff9aec1mshf038ebfe4dc2a03p1fb971jsn092088567d66"
 			}
-		}).catch((err) =>
-		{
-			console.log(err)
 		})
 
 

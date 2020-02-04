@@ -9,7 +9,7 @@ const SearchProvider = (props) => {
 	const [ data, setData ] = useState([]);
 	const [ isLoading, setIsLoading ] = useState(false);
 	const [ team, setTeam ] = useState({});
-	const [ statics, setStatics ] = useState({});
+	
 
 	useEffect(() => {
 		setIsLoading(true);
@@ -61,16 +61,11 @@ const SearchProvider = (props) => {
 	// 	return statics;
 	// };
 
-	const getTeamStatics = () => {
-		const data = fetchTeamStatics();
-		const statics = data;
-		console.log(statics);
-		return data;
-	};
+
 
 	return (
 		<SearchContext.Provider
-			value={{ data, filterResults, setData, getTeamDetails, isLoading, team, setTeam, getTeamStatics }}
+			value={{ data, filterResults, setData, getTeamDetails, isLoading, team, setTeam }}
 		>
 			{children}
 		</SearchContext.Provider>
