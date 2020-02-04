@@ -61,16 +61,13 @@ const SearchProvider = (props) => {
 	// 	return statics;
 	// };
 
-	const getTeamStatics = () => {
-		const data = fetchTeamStatics();
-		const statics = data;
-		console.log(statics);
-		return data;
-	};
+	// const getTeamStatics = async () => {
+	// 	return await fetchTeamStatics();
+	// };
 
 	return (
 		<SearchContext.Provider
-			value={{ data, filterResults, setData, getTeamDetails, isLoading, team, setTeam, getTeamStatics }}
+			value={{ data, filterResults, setData, getTeamDetails, isLoading, team, setTeam }}
 		>
 			{children}
 		</SearchContext.Provider>
