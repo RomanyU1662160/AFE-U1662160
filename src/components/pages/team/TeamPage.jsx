@@ -35,6 +35,10 @@ const TeamPage = () => {
 
   return (
     <>
+      <h3 className="text-primary text-secondary">
+        {" "}
+        Welcome to {team.team.name}'s page{" "}
+      </h3>
       <Wrapper>
         <StyledRightSideMedia>
           {" "}
