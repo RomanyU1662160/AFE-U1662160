@@ -1,0 +1,73 @@
+{
+	"get": "statistics",
+	"parameters": {
+		"league": "39",
+		"season": "2019",
+		"team": "33"
+	},
+	"errors": [],
+	"results": 4,
+	"response": {
+		"league": {
+			"id": 39,
+			"name": "Premier League",
+			"country": "England",
+			"logo": "https://media.api-football.com/leagues/2.png",
+			"flag": "https://media.api-football.com/flags/gb.svg",
+			"season": 2019
+		},
+		"team": {
+			"id": 33,
+			"name": "Manchester United",
+			"logo": "https://media.api-football.com/teams/33.png"
+		},
+		"matches": {
+			"played": {
+				"home": 12,
+				"away": 12,
+				"total": 24
+			},
+			"wins": {
+				"home": 6,
+				"away": 3,
+				"total": 9
+			},
+			"draws": {
+				"home": 4,
+				"away": 3,
+				"total": 7
+			},
+			"loses": {
+				"home": 2,
+				"away": 6,
+				"total": 8
+			}
+		},
+		"goals": {
+			"for": {
+				"total": {
+					"home": 24,
+					"away": 12,
+					"total": 36
+				},
+				"average": {
+					"home": "2.0",
+					"away": "1.0",
+					"total": "1.5"
+				}
+			},
+			"against": {
+				"total": {
+					"home": 12,
+					"away": 17,
+					"total": 29
+				},
+				"average": {
+					"home": "1.0",
+					"away": "1.4",
+					"total": "1.2"
+				}
+			}
+		}
+	}
+}

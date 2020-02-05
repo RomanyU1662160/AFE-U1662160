@@ -2,7 +2,7 @@
 
 
 
-export const ApiURL = "https://api-football-beta.p.rapidapi.com/teams?league=39&season=2019"; 
+
 
 //export const ApiURL = "https://free-football-soccer-videos.p.rapidapi.com/"; 
 
@@ -10,6 +10,7 @@ export const ApiURL = "https://api-football-beta.p.rapidapi.com/teams?league=39&
 
 async function callApi()
 {
+	const ApiURL = "https://api-football-beta.p.rapidapi.com/teams?league=39&season=2019";
 	try {
 		const response = await fetch("../../MockTeams.json", {
 			"method": "GET",
@@ -22,14 +23,13 @@ async function callApi()
 
 
 		const data = await response.json();
-		 console.log((data));
+		//  console.log((data));
 		return data;
 
 	} catch (e) {
-		console.log(e);
+		console.log(e)
 	}
 }
-
 // callApi();
 
 export default callApi;

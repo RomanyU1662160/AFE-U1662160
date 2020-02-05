@@ -1,33 +1,58 @@
-import React, { useState, useContext, useEffect } from 'react';
-import { SearchContext } from '../../../contexts/SearchContext';
-import TabGroup from '../../baseComponents/tabs/TabGroup';
-
+import React, { useState, useContext, useEffect } from "react";
+import { SearchContext } from "../../../contexts/SearchContext";
+import TabGroup from "../../baseComponents/tabs/TabGroup";
+import TeamStaticsBtn from "../../baseComponents/Buttons/TeamStaticsBtn";
+import fetchTeamStatistics from "../../../helpers/fetchStatics";
+import PieChart from "../../charts/PieChart";
+import { StyledRightSideMedia, StyledLeftSideMedia, Wrapper } from "./style";
+import LineChart from "../../charts/LineChart";
 
 const TeamPage = () => {
-	const { team } = useContext(SearchContext);
-	// const [theTeam, setTheteam] = useState({})
-	
-	// useEffect( () => {
-	// 	localStorage.setItem('team' , JSON.stringify(team))
-	// 	const localTeam = localStorage.getItem(JSON.parse('team'))
-	//     // localTeam ? setTheteam(localTeam): setTheteam(team);
-	// 	console.log("theTeam::",  theTeam);
-	// },[] )
+  const { team } = useContext(SearchContext);
+  // const [theTeam, setTheteam] = useState({})
 
-	useEffect(() => {
-		console.log(team);
-		
-	} )
+  useEffect(() => {
+    const StorageTeam = localStorage.getItem("localStorageTeam");
+    const localStorageTeam = JSON.parse(StorageTeam);
+  });
 
+  const init = {
+    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    datasets: [
+      {
+        label: "My First dataset",
+        backgroundColor: "rgb(255, 99, 132)",
+        borderColor: "rgb(255, 99, 132)",
+        data: [0, 10, 5, 2, 20, 30, 45]
+      }
+    ]
+  };
 
-	return(
-	<>
-	<h3 className="text-info text-center"> Welcome to {team.team.name}'s page  </h3>
-		<TabGroup team={team} groupId={team.team.id} ></TabGroup>
+  const handleTeamStatistics = async id => {
+    const data = await fetchTeamStatistics(id);
+    console.log("Total played matches ::", data.response.matches.played.total);
+  };
 
-	</>
-	)
+  return (
+    <>
+      <Wrapper>
+        <StyledRightSideMedia>
+          {" "}
+          <PieChart chartData={init} options={{ maintainAspectRatio: false }}>
+            {" "}
+          </PieChart>{" "}
+        </StyledRightSideMedia>
+        <StyledLeftSideMedia>
+          {" "}
+          <LineChart chartData={init} options={{ maintainAspectRatio: false }}>
+            {" "}
+          </LineChart>{" "}
+        </StyledLeftSideMedia>
+      </Wrapper>
 
+      <TabGroup team={team} groupId={team.team.id}></TabGroup>
+    </>
+  );
 };
 
 export default TeamPage;

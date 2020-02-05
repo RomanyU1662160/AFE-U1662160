@@ -6,9 +6,6 @@ import { ThemeContext } from '../../../contexts/ThemeContext';
 export default function Tab(props) {
 	const { type, name, id, label, content } = props;
 	const { theme } = useContext(ThemeContext);
-	useEffect(() => {
-		console.log(theme.color);
-	});
 
 	return (
 		<Fragment>
