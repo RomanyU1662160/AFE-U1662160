@@ -49,19 +49,34 @@ const SearchProvider = props => {
     const localStorageTeam = JSON.parse(StorageTeam);
     return selectedTeam ? setTeam(selectedTeam[0]) : setTeam(localStorageTeam);
   };
+  //Using the mock data
+  /*
+      const getTeamStatistics = async id => {
+        const teamStatistics = await fetchTeamStatistics(id);
+        console.log("teamStatistics in Context::", teamStatistics[0]);
+
+        localStorage.setItem(
+          "localStorageStatistics",
+          JSON.stringify(teamStatistics[0].response)
+        );
+        let localStorageStatistics = localStorage.getItem("localStorageStatistics");
+        const storedStatistics = JSON.parse(localStorageStatistics);
+        return teamStatistics
+          ? setStatistics(teamStatistics[0].response)
+          : setStatistics(storedStatistics);
+      };
+*/
+  // Calling the Api
 
   const getTeamStatistics = async id => {
-    const teamStatistics = await fetchTeamStatistics(id);
-    console.log("teamStatistics in Context::", teamStatistics[0]);
-
-    localStorage.setItem(
-      "localStorageStatistics",
-      JSON.stringify(teamStatistics[0].response)
-    );
+    const teamStatistics = await fetchTeamStatistics(id).then(res => {
+      localStorage.setItem("localStorageStatistics", JSON.stringify(res));
+    });
+    console.log("teamStatistics in Context::", teamStatistics);
     let localStorageStatistics = localStorage.getItem("localStorageStatistics");
     const storedStatistics = JSON.parse(localStorageStatistics);
     return teamStatistics
-      ? setStatistics(teamStatistics[0].response)
+      ? setStatistics(teamStatistics)
       : setStatistics(storedStatistics);
   };
 

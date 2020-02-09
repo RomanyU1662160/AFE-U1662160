@@ -13,6 +13,7 @@ const TeamPage = props => {
   const [goals, setGoals] = useState(statistics.goals);
   const [matches, setMatches] = useState(statistics.matches);
 
+  console.log();
   useEffect(() => {
     setGoals(statistics.goals);
     setMatches(statistics.matches);
