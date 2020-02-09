@@ -7,8 +7,8 @@ import { SearchContext } from "../../contexts/SearchContext";
 
 const Suggestion = props => {
   const { suggestion, display } = props;
-  const [selectedTeam, setSelectedTeam] = useState(null);
-  const { getTeamDetails } = useContext(SearchContext);
+
+  const { getTeamDetails, getTeamStatistics } = useContext(SearchContext);
   const { theme } = useContext(ThemeContext);
 
   useEffect(() => {
@@ -16,8 +16,8 @@ const Suggestion = props => {
   });
 
   const handleSelect = id => {
-    const selected = getTeamDetails(id);
-    return setSelectedTeam(selected);
+    getTeamStatistics(id);
+    getTeamDetails(id);
   };
 
   return (
@@ -29,7 +29,7 @@ const Suggestion = props => {
           display={display}
           onClick={() => handleSelect(suggestion.team.id)}
         >
-          {suggestion ? suggestion.team.name : ""}
+          {suggestion ? suggestion.team.name : " "}
         </StyledLi>
       </NavLink>
     </Fragment>

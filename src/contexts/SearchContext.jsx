@@ -1,5 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import callApi from "../helpers/callApi";
+import { fetchTeamStatistics } from "../helpers/fetchTeamStatics";
 
 export const SearchContext = createContext();
 
@@ -7,15 +8,20 @@ const SearchProvider = props => {
   const { children } = props;
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+
+  const StoredStatistics = localStorage.getItem("localStorageStatistics");
   const StoredTeam = localStorage.getItem("localStorageTeam");
+
   const localStoredTeam = JSON.parse(StoredTeam);
   const [team, setTeam] = useState(localStoredTeam);
 
+  const localStoredStatistics = JSON.parse(StoredStatistics);
+  const [statistics, setStatistics] = useState(localStoredStatistics);
+
+  console.log("statistics in Context::", statistics);
+
   useEffect(() => {
     setIsLoading(true);
-    const StoredTeam = localStorage.getItem("localStorageTeam");
-    const localStoredTeam = JSON.parse(StoredTeam);
-    setTeam(localStoredTeam);
     setTimeout(() => {
       callApi().then(res => setData(res));
       setIsLoading(false);
@@ -30,7 +36,6 @@ const SearchProvider = props => {
         return item.team.name.toLowerCase().includes(searchTerm);
       });
     }
-
     return filteredResults;
   };
 
@@ -45,6 +50,21 @@ const SearchProvider = props => {
     return selectedTeam ? setTeam(selectedTeam[0]) : setTeam(localStorageTeam);
   };
 
+  const getTeamStatistics = async id => {
+    const teamStatistics = await fetchTeamStatistics(id);
+    console.log("teamStatistics in Context::", teamStatistics[0]);
+
+    localStorage.setItem(
+      "localStorageStatistics",
+      JSON.stringify(teamStatistics[0].response)
+    );
+    let localStorageStatistics = localStorage.getItem("localStorageStatistics");
+    const storedStatistics = JSON.parse(localStorageStatistics);
+    return teamStatistics
+      ? setStatistics(teamStatistics[0].response)
+      : setStatistics(storedStatistics);
+  };
+
   return (
     <SearchContext.Provider
       value={{
@@ -52,8 +72,10 @@ const SearchProvider = props => {
         filterResults,
         setData,
         getTeamDetails,
+        getTeamStatistics,
         isLoading,
         team,
+        statistics,
         setTeam
       }}
     >

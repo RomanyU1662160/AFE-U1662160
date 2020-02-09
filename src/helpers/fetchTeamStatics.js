@@ -16,5 +16,7 @@ export const fetchTeamStatistics = async id => {
     return data.response.team.id === id;
   });
   // console.log("teamStatistics in helper function ::", teamStatistics);
+
+  // console.log("teamStatistics in helpers :: ", teamStatistics);
   return teamStatistics;
 };

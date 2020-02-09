@@ -1,11 +1,5 @@
 [
   {
-    "get": "statistics",
-    "parameters": {
-      "league": "39",
-      "season": "2019",
-      "team": "33"
-    },
     "errors": [],
     "results": 4,
     "response": {
@@ -74,12 +68,6 @@
   },
 
   {
-    "get": "statistics",
-    "parameters": {
-      "league": "39",
-      "season": "2019",
-      "team": "34"
-    },
     "errors": [],
     "results": 4,
     "response": {
@@ -93,29 +81,29 @@
       },
       "team": {
         "id": 34,
-        "name": "Manchester City",
+        "name": "Newcastle",
         "logo": "https://media.api-football.com/teams/34.png"
       },
       "matches": {
         "played": {
           "home": 12,
           "away": 12,
-          "total": 24
+          "total": 100
         },
         "wins": {
-          "home": 6,
-          "away": 3,
-          "total": 9
+          "home": 20,
+          "away": 20,
+          "total": 40
         },
         "draws": {
-          "home": 4,
-          "away": 3,
-          "total": 7
+          "home": 10,
+          "away": 30,
+          "total": 40
         },
         "loses": {
-          "home": 2,
-          "away": 6,
-          "total": 8
+          "home": 10,
+          "away": 10,
+          "total": 20
         }
       },
       "goals": {
@@ -148,12 +136,6 @@
   },
 
   {
-    "get": "statistics",
-    "parameters": {
-      "league": "39",
-      "season": "2019",
-      "team": "52"
-    },
     "errors": [],
     "results": 4,
     "response": {
@@ -166,30 +148,30 @@
         "season": 2019
       },
       "team": {
-        "id": 52,
+        "id": 40,
         "name": "Liverpool",
         "logo": "https://media.api-football.com/teams/34.png"
       },
       "matches": {
         "played": {
-          "home": 12,
-          "away": 12,
-          "total": 24
+          "home": 30,
+          "away": 20,
+          "total": 50
         },
         "wins": {
-          "home": 6,
-          "away": 3,
-          "total": 9
+          "home": 20,
+          "away": 29,
+          "total": 49
         },
         "draws": {
-          "home": 4,
-          "away": 3,
-          "total": 7
+          "home": 0,
+          "away": 1,
+          "total": 1
         },
         "loses": {
-          "home": 2,
-          "away": 6,
-          "total": 8
+          "home": 0,
+          "away": 0,
+          "total": 0
         }
       },
       "goals": {

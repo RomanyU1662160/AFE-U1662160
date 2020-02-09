@@ -9,34 +9,26 @@ import PieChart from "../../charts/PieChart";
 import LineChart from "../../charts/LineChart";
 
 const TeamPage = props => {
-  const { team } = useContext(SearchContext);
-  const [statistics, setStatistics] = useState({});
-  const [goals, setGoals] = useState({});
-  const [matches, setMatches] = useState({});
+  const { team, statistics } = useContext(SearchContext);
+  const [goals, setGoals] = useState(statistics.goals);
+  const [matches, setMatches] = useState(statistics.matches);
 
   useEffect(() => {
-    const doFetchStatistics = async () => {
-      const teamStatistics = await fetchTeamStatistics(team.team.id);
+    setGoals(statistics.goals);
+    setMatches(statistics.matches);
+  });
 
-      teamStatistics.length > 0
-        ? setStatistics(teamStatistics[0].response)
-        : setStatistics([]);
-    };
-    doFetchStatistics();
-  }, []);
+  console.log("statistics in team page::", statistics);
 
-  console.log(statistics);
-
-  // const { goals, matches } = statistics;
-
-  // const matchesChartDataset = [
-  //   matches.played.wins,
-  //   matches.played.draws,
-  //   matches.played.loses
-  // ];
-
+  //const { goals, matches } = statistics;
   console.log("Matches in team page ::: ", matches);
-  console.log("Goals  in team page ::: ", goals);
+
+  const matchesChartDataset = [
+    matches.wins.total,
+    matches.draws.total,
+    matches.loses.total
+  ];
+  console.log(matchesChartDataset);
 
   const init = {
     labels: ["Wins", "Draws", "Loses"],
@@ -45,7 +37,7 @@ const TeamPage = props => {
         label: "Matches ",
         backgroundColor: "rgb(144, 192, 243)",
         borderColor: "lightgray",
-        data: [9, 7, 8]
+        data: matchesChartDataset
       }
     ]
   };
