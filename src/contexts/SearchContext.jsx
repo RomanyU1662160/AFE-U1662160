@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import callApi from "../helpers/callApi";
-import fetchTeamStatics from "../helpers/fetchStatics";
+import { fetchTeamStatistics } from "../helpers/fetchTeamStatics";
 
 export const SearchContext = createContext();
 
@@ -8,14 +8,22 @@ const SearchProvider = props => {
   const { children } = props;
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [team, setTeam] = useState({});
+
+  const StoredStatistics = localStorage.getItem("localStorageStatistics");
+  const StoredTeam = localStorage.getItem("localStorageTeam");
+
+  const localStoredTeam = JSON.parse(StoredTeam);
+  const [team, setTeam] = useState(localStoredTeam);
+
+  const localStoredStatistics = JSON.parse(StoredStatistics);
+  const [statistics, setStatistics] = useState(localStoredStatistics);
+
+  console.log("statistics in Context::", statistics);
 
   useEffect(() => {
     setIsLoading(true);
     setTimeout(() => {
       callApi().then(res => setData(res));
-      console.log(data);
-
       setIsLoading(false);
     }, 1000);
   }, []);
@@ -24,40 +32,53 @@ const SearchProvider = props => {
     let filteredResults = [];
     if (userInput) {
       filteredResults = data.filter(item => {
-        const searchterm = userInput.toLowerCase();
-        return item.team.name.toLowerCase().includes(searchterm);
+        const searchTerm = userInput.toLowerCase();
+        return item.team.name.toLowerCase().includes(searchTerm);
       });
     }
-
     return filteredResults;
   };
 
   const getTeamDetails = id => {
     const selectedTeam = data.filter(x => {
-      return x.team.id == id;
+      return x.team.id === id;
     });
 
     localStorage.setItem("localStorageTeam", JSON.stringify(selectedTeam[0]));
     const StorageTeam = localStorage.getItem("localStorageTeam");
     const localStorageTeam = JSON.parse(StorageTeam);
-    console.log(localStorageTeam);
-    console.log(selectedTeam[0]);
     return selectedTeam ? setTeam(selectedTeam[0]) : setTeam(localStorageTeam);
   };
 
-  // const getTeamStatics = async (id) => {
-  // 	const url = ` https://api-football-beta.p.rapidapi.com/statistics?season=2019&team=${id}&league=39`;
-  // 	const statics = await fetch(url, {
-  // 		method: 'get',
-  // 		headers: {
-  // 			'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
-  // 			'x-rapidapi-key': 'b42ff9aec1mshf038ebfe4dc2a03p1fb971jsn092088567d66'
-  // 		}
-  // 	})
-  // 		.then((res) => console.log(statics))
-  // 		.catch((err) => console.log(err));
+  //method is using the mock data
 
-  // 	return statics;
+  const getTeamStatistics = async id => {
+    const teamStatistics = await fetchTeamStatistics(id);
+    console.log("teamStatistics in Context::", teamStatistics[0]);
+
+    localStorage.setItem(
+      "localStorageStatistics",
+      JSON.stringify(teamStatistics[0].response)
+    );
+    let localStorageStatistics = localStorage.getItem("localStorageStatistics");
+    const storedStatistics = JSON.parse(localStorageStatistics);
+    return teamStatistics
+      ? setStatistics(teamStatistics[0].response)
+      : setStatistics(storedStatistics);
+  };
+
+  // Method is using the data from API
+
+  // const getTeamStatistics = async id => {
+  //   const teamStatistics = await fetchTeamStatistics(id).then(res => {
+  //     localStorage.setItem("localStorageStatistics", JSON.stringify(res));
+  //   });
+  //   console.log("teamStatistics in Context::", teamStatistics);
+  //   let localStorageStatistics = localStorage.getItem("localStorageStatistics");
+  //   const storedStatistics = JSON.parse(localStorageStatistics);
+  //   return teamStatistics
+  //     ? setStatistics(teamStatistics)
+  //     : setStatistics(storedStatistics);
   // };
 
   return (
@@ -67,8 +88,10 @@ const SearchProvider = props => {
         filterResults,
         setData,
         getTeamDetails,
+        getTeamStatistics,
         isLoading,
         team,
+        statistics,
         setTeam
       }}
     >

@@ -1,56 +1,67 @@
 import React, { useState, useContext, useEffect } from "react";
 import { SearchContext } from "../../../contexts/SearchContext";
 import TabGroup from "../../baseComponents/tabs/TabGroup";
-import TeamStaticsBtn from "../../baseComponents/Buttons/TeamStaticsBtn";
-import fetchTeamStatistics from "../../../helpers/fetchStatics";
-import PieChart from "../../charts/PieChart";
 import { StyledRightSideMedia, StyledLeftSideMedia, Wrapper } from "./style";
-import LineChart from "../../charts/LineChart";
 
-const TeamPage = () => {
-  const { team } = useContext(SearchContext);
-  // const [theTeam, setTheteam] = useState({})
+import { fetchTeamStatistics } from "../../../helpers/fetchTeamStatics";
+import PieChart from "../../charts/PieChart";
+
+import LineChart from "../../charts/LineChart";
+import { useParams } from "react-router-dom";
+
+const TeamPage = props => {
+  const { team, statistics } = useContext(SearchContext);
+  const [goals, setGoals] = useState(statistics.goals);
+  const [matches, setMatches] = useState(statistics.matches);
+
+  const urlParams = useParams();
+  console.log(" urlParams.id ::", urlParams.id);
 
   useEffect(() => {
-    const StorageTeam = localStorage.getItem("localStorageTeam");
-    const localStorageTeam = JSON.parse(StorageTeam);
-  });
+    setGoals(statistics.goals);
+    setMatches(statistics.matches);
+  }, []);
+
+  console.log("statistics in team page::", statistics);
+
+  console.log("Matches in team page ::: ", matches);
+
+  const matchesChartDataset = [
+    matches.wins.total,
+    matches.draws.total,
+    matches.loses.total
+  ];
+  console.log(matchesChartDataset);
 
   const init = {
-    labels: ["January", "February", "March", "April", "May", "June", "July"],
+    labels: ["Wins", "Draws", "Loses"],
     datasets: [
       {
-        label: "My First dataset",
-        backgroundColor: "rgb(255, 99, 132)",
-        borderColor: "rgb(255, 99, 132)",
-        data: [0, 10, 5, 2, 20, 30, 45]
+        label: "Matches ",
+        backgroundColor: "rgb(144, 192, 243)",
+        borderColor: "lightgray",
+        data: matchesChartDataset
       }
     ]
-  };
-
-  const handleTeamStatistics = async id => {
-    const data = await fetchTeamStatistics(id);
-    console.log("Total played matches ::", data.response.matches.played.total);
   };
 
   return (
     <>
       <h3 className="text-primary text-secondary">
-        {" "}
         Welcome to {team.team.name}'s page{" "}
       </h3>
       <Wrapper>
         <StyledRightSideMedia>
-          {" "}
-          <PieChart chartData={init} options={{ maintainAspectRatio: false }}>
-            {" "}
-          </PieChart>{" "}
+          <PieChart
+            chartData={init}
+            options={{ maintainAspectRatio: false }}
+          ></PieChart>
         </StyledRightSideMedia>
         <StyledLeftSideMedia>
-          {" "}
-          <LineChart chartData={init} options={{ maintainAspectRatio: false }}>
-            {" "}
-          </LineChart>{" "}
+          <LineChart
+            chartData={init}
+            options={{ maintainAspectRatio: false }}
+          ></LineChart>
         </StyledLeftSideMedia>
       </Wrapper>
 
