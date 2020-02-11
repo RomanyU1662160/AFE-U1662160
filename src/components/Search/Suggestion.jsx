@@ -9,7 +9,7 @@ import TabGroup from '../baseComponents/tabs/TabGroup';
 const Suggestion = (props) => {
 	const { suggestion, display } = props;
 	const [ selectedTeam, setSelectedteam ] = useState(null);
-	const { getTeamDetails } = useContext(SearchContext);
+	const { getTeamDetails,getTeamStatics } = useContext(SearchContext);
 	const { theme } = useContext(ThemeContext);
 
 	useEffect(() => {
@@ -17,9 +17,10 @@ const Suggestion = (props) => {
 	});
 
 	const handleSelect = (id) => {
-		const selected = getTeamDetails(id);
-		console.log('selected', selected);
-		return setSelectedteam(selected);
+		 getTeamDetails(id);
+		 getTeamStatics(id);
+		// console.log('selected', selected);
+		// return setSelectedteam(selected);
 	};
 
 	return (

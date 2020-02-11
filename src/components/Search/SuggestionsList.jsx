@@ -8,22 +8,21 @@ const SuggestionsList = (props) => {
 
 	return (
 		<Fragment>
-				{ isLoading ?
-					<Loader 
-						type="Oval"
-						color="#00BFFF"
-						height={100}
-						width={100}	
-					/>
-					:
-					suggestions.length > 0 &&
-					<ul>
-						{ suggestions.map(suggestion => 
-							<Suggestion key={suggestion.team.id} suggestion={suggestion} display="block" />
-						)}
-					</ul> 
-
-				}
+			{ isLoading ?
+				<Loader 
+					type="Oval"
+					color="#00BFFF"
+					height={100}
+					width={100}	
+				/>
+				:
+				suggestions.length > 0 &&
+				<ul>
+					{ suggestions.map(suggestion => 
+						<Suggestion key={suggestion.team.id} suggestion={suggestion} display="block" />
+					)}
+				</ul> 
+			}
 		</Fragment>
 	);
 };

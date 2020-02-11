@@ -45,20 +45,31 @@ const SearchProvider = props => {
     return selectedTeam ? setTeam(selectedTeam[0]) : setTeam(localStorageTeam);
   };
 
-  // const getTeamStatics = async (id) => {
-  // 	const url = ` https://api-football-beta.p.rapidapi.com/statistics?season=2019&team=${id}&league=39`;
-  // 	const statics = await fetch(url, {
-  // 		method: 'get',
-  // 		headers: {
-  // 			'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
-  // 			'x-rapidapi-key': 'b42ff9aec1mshf038ebfe4dc2a03p1fb971jsn092088567d66'
-  // 		}
-  // 	})
-  // 		.then((res) => console.log(statics))
-  // 		.catch((err) => console.log(err));
+//   const getTeamStatics = async (id) => {
+//   	const url = ` https://api-football-beta.p.rapidapi.com/statistics?season=2019&team=${id}&league=39`;
+//   	const statics = await fetch(url, {
+//   		method: 'get',
+//   		headers: {
+//   			'x-rapidapi-host': 'api-football-beta.p.rapidapi.com',
+//   			'x-rapidapi-key': 'b42ff9aec1mshf038ebfe4dc2a03p1fb971jsn092088567d66'
+//   		}
+//   	})
+  		
 
-  // 	return statics;
-  // };
+//   	return statics;
+//   };
+
+const getTeamStatics = async (id) => {
+	try {
+		const response = await fetchTeamStatics(id); 
+		const statistics  = await response.response; 
+		console.log(statistics);
+		return statistics;
+	} catch(err) {
+		console.log(err);
+		return [];
+	}
+}
 
   return (
     <SearchContext.Provider
@@ -69,7 +80,8 @@ const SearchProvider = props => {
         getTeamDetails,
         isLoading,
         team,
-        setTeam
+		setTeam,
+		getTeamStatics
       }}
     >
       {children}
