@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import SearchInput from '../../Search/SearchInput';
+import React, { useContext } from "react";
+import SearchInput from "../../inputs/SearchInput";
 
-const SearchPage = (props) => {
-	return <SearchInput />;
+const SearchPage = props => {
+  return <SearchInput />;
 };
 
 export default SearchPage;
