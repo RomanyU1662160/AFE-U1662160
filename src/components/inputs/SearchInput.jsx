@@ -5,7 +5,7 @@ import { Input, FormGroup } from "reactstrap";
 import { SearchContext } from "../../contexts/SearchContext";
 
 const SearchInput = props => {
-  const { data, filterResults, setData, isLoading } = useContext(SearchContext);
+  const { data, filterResults, isLoading } = useContext(SearchContext);
   const [MatchedData, setMatchedData] = useState(data);
 
   const handleFilterSearch = input => {

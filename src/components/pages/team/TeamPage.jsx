@@ -7,21 +7,23 @@ import { fetchTeamStatistics } from "../../../helpers/fetchTeamStatics";
 import PieChart from "../../charts/PieChart";
 
 import LineChart from "../../charts/LineChart";
+import { useParams } from "react-router-dom";
 
 const TeamPage = props => {
   const { team, statistics } = useContext(SearchContext);
   const [goals, setGoals] = useState(statistics.goals);
   const [matches, setMatches] = useState(statistics.matches);
 
-  console.log();
+  const urlParams = useParams();
+  console.log(" urlParams.id ::", urlParams.id);
+
   useEffect(() => {
     setGoals(statistics.goals);
     setMatches(statistics.matches);
-  });
+  }, []);
 
   console.log("statistics in team page::", statistics);
 
-  //const { goals, matches } = statistics;
   console.log("Matches in team page ::: ", matches);
 
   const matchesChartDataset = [
