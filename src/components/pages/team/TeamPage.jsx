@@ -1,39 +1,24 @@
-import React, { useState, useContext, useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { SearchContext } from "../../../contexts/SearchContext";
+import Loader from "react-loader-spinner";
 import TabGroup from "../../baseComponents/tabs/TabGroup";
 import { StyledRightSideMedia, StyledLeftSideMedia, Wrapper } from "./style";
 
-import { fetchTeamStatistics } from "../../../helpers/fetchTeamStatics";
 import PieChart from "../../charts/PieChart";
 
 import LineChart from "../../charts/LineChart";
-import { useParams } from "react-router-dom";
 
 const TeamPage = props => {
-  const { team, statistics } = useContext(SearchContext);
-  const [goals, setGoals] = useState(statistics.goals);
-  const [matches, setMatches] = useState(statistics.matches);
-
-  const urlParams = useParams();
-  console.log(" urlParams.id ::", urlParams.id);
-
-  useEffect(() => {
-    setGoals(statistics.goals);
-    setMatches(statistics.matches);
-  }, []);
-
-  console.log("statistics in team page::", statistics);
-
-  console.log("Matches in team page ::: ", matches);
+  const { team, isLoading, statistics = {} } = useContext(SearchContext);
+  const { goals, matches } = statistics;
 
   const matchesChartDataset = [
-    matches.wins.total,
-    matches.draws.total,
-    matches.loses.total
+    matches?.wins?.total,
+    matches?.draws?.total,
+    matches?.loses?.total
   ];
-  console.log(matchesChartDataset);
 
-  const init = {
+  const matchesData = {
     labels: ["Wins", "Draws", "Loses"],
     datasets: [
       {
@@ -50,22 +35,28 @@ const TeamPage = props => {
       <h3 className="text-primary text-secondary">
         Welcome to {team.team.name}'s page{" "}
       </h3>
-      <Wrapper>
-        <StyledRightSideMedia>
-          <PieChart
-            chartData={init}
-            options={{ maintainAspectRatio: false }}
-          ></PieChart>
-        </StyledRightSideMedia>
-        <StyledLeftSideMedia>
-          <LineChart
-            chartData={init}
-            options={{ maintainAspectRatio: false }}
-          ></LineChart>
-        </StyledLeftSideMedia>
-      </Wrapper>
+      {isLoading ? (
+        <Loader type="Oval" color="#00BFFF" height={100} width={100}></Loader>
+      ) : (
+        <>
+          <Wrapper>
+            <StyledRightSideMedia>
+              <PieChart
+                chartData={matchesData}
+                options={{ maintainAspectRatio: false }}
+              ></PieChart>
+            </StyledRightSideMedia>
+            <StyledLeftSideMedia>
+              <LineChart
+                chartData={matchesData}
+                options={{ maintainAspectRatio: false }}
+              ></LineChart>
+            </StyledLeftSideMedia>
+          </Wrapper>
 
-      <TabGroup team={team} groupId={team.team.id}></TabGroup>
+          <TabGroup team={team} groupId={team.team.id}></TabGroup>
+        </>
+      )}
     </>
   );
 };
