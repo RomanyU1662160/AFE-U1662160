@@ -9,7 +9,8 @@ const SearchProvider = props => {
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
-  const StoredStatistics = localStorage.getItem("localStorageStatistics");
+  const StoredStatistics =
+    localStorage.getItem("localStorageStatistics") || "{}";
   const StoredTeam = localStorage.getItem("localStorageTeam");
 
   const localStoredTeam = JSON.parse(StoredTeam);
@@ -50,8 +51,9 @@ const SearchProvider = props => {
     return selectedTeam ? setTeam(selectedTeam[0]) : setTeam(localStorageTeam);
   };
 
-  //method is using the mock data
-
+  /*method is using the mock data 
+     
+  */
   const getTeamStatistics = async id => {
     const teamStatistics = await fetchTeamStatistics(id);
     console.log("teamStatistics in Context::", teamStatistics[0]);
@@ -67,7 +69,9 @@ const SearchProvider = props => {
       : setStatistics(storedStatistics);
   };
 
-  // Method is using the data from API
+  /* Method is using the data from API 
+      please uncomment the method in helpers/fetchTeamStatics.js as well
+  */
 
   // const getTeamStatistics = async id => {
   //   const teamStatistics = await fetchTeamStatistics(id).then(res => {
@@ -90,6 +94,7 @@ const SearchProvider = props => {
         getTeamDetails,
         getTeamStatistics,
         isLoading,
+        setIsLoading,
         team,
         statistics,
         setTeam
