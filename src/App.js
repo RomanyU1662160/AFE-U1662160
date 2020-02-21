@@ -1,14 +1,8 @@
-import "bootstrap/dist/css/bootstrap.min.css";
-import $ from "jquery";
-import Popper from "popper.js";
-import "bootstrap/dist/js/bootstrap.bundle";
 import React from "react";
 import "./App.css";
 
 import ThemeContextProvider from "./contexts/ThemeContext";
 import SearchProvider from "./contexts/SearchContext";
-import TeamsProvider from "./contexts/TeamsContext";
-import AllTeams from "./components/pages/teams/AllTeams";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Header from "./components/baseComponents/header/Header";
 import Home from "./components/pages/home/Home";
