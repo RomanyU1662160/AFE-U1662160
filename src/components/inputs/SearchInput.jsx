@@ -1,11 +1,11 @@
-import React, { useState, useContext } from "react";
+import React, {useState, useContext} from "react";
 import SuggestionsList from "./SuggestionsList";
-import { Input, FormGroup } from "reactstrap";
+import {Input, FormGroup} from "reactstrap";
 
-import { SearchContext } from "../../contexts/SearchContext";
+import {SearchContext} from "../../contexts/SearchContext";
 
 const SearchInput = props => {
-  const { data, filterResults, isLoading } = useContext(SearchContext);
+  const {data, filterResults, isLoading} = useContext(SearchContext);
   const [MatchedData, setMatchedData] = useState(data);
 
   const handleFilterSearch = input => {
@@ -15,19 +15,21 @@ const SearchInput = props => {
 
   return (
     <>
-      <div className="container">
-        <h3 className="text-center"> Search Form </h3>
+      <div className='container'>
+        <h3 className='text-center' data-testid='searchformtitle'>
+          Search Form{" "}
+        </h3>
         <FormGroup>
           <Input
-            type="text"
+            type='text'
             onChange={e => handleFilterSearch(e.target.value)}
-            placeholder="Search Teams.."
+            placeholder='Search Teams..'
             autoFocus
           />
 
-          <SuggestionsList suggestions={MatchedData} isLoading={isLoading}>
-            {" "}
-          </SuggestionsList>
+          <SuggestionsList
+            suggestions={MatchedData}
+            isLoading={isLoading}></SuggestionsList>
         </FormGroup>
       </div>
     </>
