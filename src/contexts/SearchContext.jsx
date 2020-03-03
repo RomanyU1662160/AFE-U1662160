@@ -1,11 +1,11 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, {createContext, useEffect, useState} from "react";
 import callApi from "../helpers/callApi";
-import { fetchTeamStatistics } from "../helpers/fetchTeamStatics";
+import {fetchTeamStatistics} from "../helpers/fetchTeamStatics";
 
 export const SearchContext = createContext();
 
 const SearchProvider = props => {
-  const { children } = props;
+  const {children} = props;
   const [data, setData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -19,7 +19,7 @@ const SearchProvider = props => {
   const localStoredStatistics = JSON.parse(StoredStatistics);
   const [statistics, setStatistics] = useState(localStoredStatistics);
 
-  console.log("statistics in Context::", statistics);
+  // console.log("statistics in Context::", statistics);
 
   useEffect(() => {
     setIsLoading(true);
@@ -56,7 +56,7 @@ const SearchProvider = props => {
   */
   const getTeamStatistics = async id => {
     const teamStatistics = await fetchTeamStatistics(id);
-    console.log("teamStatistics in Context::", teamStatistics[0]);
+    //console.log("teamStatistics in Context::", teamStatistics[0]);
 
     localStorage.setItem(
       "localStorageStatistics",
@@ -98,8 +98,7 @@ const SearchProvider = props => {
         team,
         statistics,
         setTeam
-      }}
-    >
+      }}>
       {children}
     </SearchContext.Provider>
   );

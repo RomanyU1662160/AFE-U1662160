@@ -1,22 +1,23 @@
-import React, { useContext, useEffect } from "react";
-import { SearchContext } from "../../../contexts/SearchContext";
+import React, {useContext, useEffect} from "react";
+import {SearchContext} from "../../../contexts/SearchContext";
 import Loader from "react-loader-spinner";
 import TabGroup from "../../baseComponents/tabs/TabGroup";
-import { StyledRightSideMedia, StyledLeftSideMedia, Wrapper } from "./style";
+import {StyledRightSideMedia, StyledLeftSideMedia, Wrapper} from "./style";
 
 import PieChart from "../../charts/PieChart";
 
 import LineChart from "../../charts/LineChart";
 
 const TeamPage = props => {
-  const { team, isLoading, statistics = {} } = useContext(SearchContext);
-  const { goals, matches } = statistics;
+  const {team, isLoading, statistics = {}} = useContext(SearchContext);
+  const {goals, matches} = statistics;
 
   const matchesChartDataset = [
     matches?.wins?.total,
     matches?.draws?.total,
     matches?.loses?.total
   ];
+  console.log(matchesChartDataset);
 
   const matchesData = {
     labels: ["Wins", "Draws", "Loses"],
@@ -32,25 +33,31 @@ const TeamPage = props => {
 
   return (
     <>
-      <h3 className="text-primary text-secondary">
-        Welcome to {team.team.name}'s page{" "}
+      <h3 className='text-primary text-secondary' data-testid='teampagetitle'>
+        Welcome to {team.team.name}'s page
       </h3>
       {isLoading ? (
-        <Loader type="Oval" color="#00BFFF" height={100} width={100}></Loader>
+        <Loader type='Oval' color='#00BFFF' height={100} width={100}></Loader>
       ) : (
         <>
           <Wrapper>
             <StyledRightSideMedia>
-              <PieChart
-                chartData={matchesData}
-                options={{ maintainAspectRatio: false }}
-              ></PieChart>
+              {matchesChartDataset !== null ? (
+                <PieChart
+                  chartData={matchesData}
+                  options={{maintainAspectRatio: false}}></PieChart>
+              ) : (
+                "Loading.."
+              )}
             </StyledRightSideMedia>
             <StyledLeftSideMedia>
-              <LineChart
-                chartData={matchesData}
-                options={{ maintainAspectRatio: false }}
-              ></LineChart>
+              {matchesChartDataset !== null ? (
+                <LineChart
+                  chartData={matchesData}
+                  options={{maintainAspectRatio: false}}></LineChart>
+              ) : (
+                "..Loading"
+              )}
             </StyledLeftSideMedia>
           </Wrapper>
 

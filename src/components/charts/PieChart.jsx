@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import { Doughnut } from "react-chartjs-2";
+import React, {useEffect} from "react";
+import {Doughnut} from "react-chartjs-2";
 
 const PieChart = props => {
-  const { chartData } = props;
+  const {chartData} = props;
 
   return (
     <>
-      <Doughnut data={chartData} options={{ maintainAspectRatio: false }}>
-        {" "}
-      </Doughnut>
+      <Doughnut
+        data={chartData}
+        options={{maintainAspectRatio: false}}></Doughnut>
     </>
   );
 };
