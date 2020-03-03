@@ -5,8 +5,8 @@ import TabGroup from "../../baseComponents/tabs/TabGroup";
 import {StyledRightSideMedia, StyledLeftSideMedia, Wrapper} from "./style";
 
 import PieChart from "../../charts/PieChart";
-
 import LineChart from "../../charts/LineChart";
+import BarChart from "../../charts/BarChart";
 
 const TeamPage = props => {
   const {team, isLoading, statistics = {}} = useContext(SearchContext);
@@ -17,7 +17,12 @@ const TeamPage = props => {
     matches?.draws?.total,
     matches?.loses?.total
   ];
-  console.log(matchesChartDataset);
+
+  const goalsChartDataSet = [
+    goals?.for?.total.total,
+    goals?.for?.total.away,
+    goals?.for?.total.home
+  ];
 
   const matchesData = {
     labels: ["Wins", "Draws", "Loses"],
@@ -52,9 +57,9 @@ const TeamPage = props => {
             </StyledRightSideMedia>
             <StyledLeftSideMedia>
               {goals !== null ? (
-                <LineChart
+                <BarChart
                   chartData={matchesData}
-                  options={{maintainAspectRatio: false}}></LineChart>
+                  options={{maintainAspectRatio: false}}></BarChart>
               ) : (
                 "..Loading"
               )}
