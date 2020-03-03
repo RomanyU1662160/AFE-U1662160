@@ -27,18 +27,9 @@ const statistics = {
     name: "Manchester United",
     logo: "https://media.api-football.com/teams/33.png"
   },
-  matches: {},
+  matches: null,
 
-  goals: {
-    for: {
-      total: {home: 24, away: 12, total: 36},
-      average: {home: "1.8", away: "1.0", total: "1.4"}
-    },
-    against: {
-      total: {home: 12, away: 17, total: 29},
-      average: {home: "0.9", away: "1.4", total: "1.2"}
-    }
-  }
+  goals: null
 };
 
 const team = {

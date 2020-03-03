@@ -42,7 +42,7 @@ const TeamPage = props => {
         <>
           <Wrapper>
             <StyledRightSideMedia>
-              {matchesChartDataset !== null ? (
+              {matches !== null ? (
                 <PieChart
                   chartData={matchesData}
                   options={{maintainAspectRatio: false}}></PieChart>
@@ -51,7 +51,7 @@ const TeamPage = props => {
               )}
             </StyledRightSideMedia>
             <StyledLeftSideMedia>
-              {matchesChartDataset !== null ? (
+              {goals !== null ? (
                 <LineChart
                   chartData={matchesData}
                   options={{maintainAspectRatio: false}}></LineChart>
