@@ -1,11 +1,11 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, {Fragment, useContext, useEffect} from "react";
 
-import { InputItem, InputLabel, TabContent } from "./style";
-import { ThemeContext } from "../../../contexts/ThemeContext";
+import {InputItem, InputLabel, TabContent} from "./style";
+import {ThemeContext} from "../../../contexts/ThemeContext";
 
 export default function Tab(props) {
-  const { type, name, id, label, content } = props;
-  const { theme } = useContext(ThemeContext);
+  const {type, name, id, label, content} = props;
+  const {theme} = useContext(ThemeContext);
 
   return (
     <Fragment>
@@ -13,19 +13,18 @@ export default function Tab(props) {
       <InputLabel
         theme={theme}
         htmlFor={id}
-        onClick={() => showContent(id + "content")}
-      >
+        onClick={() => showContent(id + "content")}>
         {label}
       </InputLabel>
 
       <TabContent id={id + "content"}>
         {Object.entries(content).map(([key, value]) => {
           return (
-            <div className="row border-bottom" key={value}>
-              <div className="col-md-6">
+            <div className='row border-bottom' key={value}>
+              <div className='col-6 col-sm'>
                 {key[0].toUpperCase() + key.slice(1)} :{" "}
               </div>
-              <div className="col-md-6"> {value}</div>
+              <div className='col-6'> {value}</div>
             </div>
           );
         })}
