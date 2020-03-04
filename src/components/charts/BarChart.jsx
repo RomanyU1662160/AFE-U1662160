@@ -4,35 +4,6 @@ import {Bar} from "react-chartjs-2";
 const BarChart = props => {
   const {chartData} = props;
 
-  const data = {
-    datasets: [
-      {
-        label: "Sales",
-        type: "line",
-        data: [51, 65, 40, 49, 60, 37, 40],
-        fill: false,
-        borderColor: "#EC932F",
-        backgroundColor: "#EC932F",
-        pointBorderColor: "#EC932F",
-        pointBackgroundColor: "#EC932F",
-        pointHoverBackgroundColor: "#EC932F",
-        pointHoverBorderColor: "#EC932F",
-        yAxisID: "y-axis-2"
-      },
-      {
-        type: "bar",
-        label: "Visitor",
-        data: [200, 185, 590, 621, 250, 400, 95],
-        fill: false,
-        backgroundColor: "#71B37C",
-        borderColor: "#71B37C",
-        hoverBackgroundColor: "#71B37C",
-        hoverBorderColor: "#71B37C",
-        yAxisID: "y-axis-1"
-      }
-    ]
-  };
-
   const options = {
     responsive: true,
     maintainAspectRatio: false,
@@ -51,15 +22,7 @@ const BarChart = props => {
           gridLines: {
             display: false
           },
-          labels: [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July"
-          ]
+          labels: ["Total Scored", "Scored Away ", "Scored Home"]
         }
       ],
       yAxes: [
@@ -86,6 +49,18 @@ const BarChart = props => {
           labels: {
             show: true
           }
+        },
+        {
+          type: "linear",
+          display: true,
+          position: "right",
+          id: "y-axis-3",
+          gridLines: {
+            display: true
+          },
+          labels: {
+            show: true
+          }
         }
       ]
     }
@@ -95,14 +70,14 @@ const BarChart = props => {
     {
       afterDraw: (chartInstance, easing) => {
         const ctx = chartInstance.chart.ctx;
-        ctx.fillText("This text drawn by a plugin", 100, 100);
+        ctx.fillText("Goals Chart", 500, 10);
       }
     }
   ];
 
   return (
     <>
-      <Bar data={data} options={options} plugins={plugins} />
+      <Bar data={chartData} options={options} />
     </>
   );
 };
