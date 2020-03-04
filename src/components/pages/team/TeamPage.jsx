@@ -118,16 +118,16 @@ const TeamPage = props => {
         <div className='media-body'></div>
       </div>
 
-      <Wrapper>
-        <StyledRightSideMedia>
+      <div className='row '>
+        <div className='col'>
           <Img src={team.team.logo} className='align-self-center'></Img>
           <h4
             className='text-center text-secondary'
             data-testid='teampagetitle'>
             Welcome to {team.team.name}'s page
           </h4>
-        </StyledRightSideMedia>
-      </Wrapper>
+        </div>
+      </div>
 
       {isLoading ? (
         <Loader type='Oval' color='#00BFFF' height={100} width={100}></Loader>
