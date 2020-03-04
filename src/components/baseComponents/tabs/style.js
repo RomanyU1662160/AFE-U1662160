@@ -42,3 +42,13 @@ export const TabContent = styled.div`
   display: none;
   width: 100%;
 `;
+
+export const LogoWrapper = styled.div`
+  min-width: 100%;
+  min-height: 100%;
+  background-color: red;
+  background: url(${props => (props.background ? props.background : "")});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+`;

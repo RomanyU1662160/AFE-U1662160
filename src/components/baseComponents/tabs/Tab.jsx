@@ -1,8 +1,10 @@
 import React, {Fragment, useContext, useEffect} from "react";
 
-import {InputItem, InputLabel, TabContent} from "./style";
+import {InputItem, InputLabel, TabContent, LogoWrapper} from "./style";
 import {ThemeContext} from "../../../contexts/ThemeContext";
+import Img from "react-image";
 
+const imgUrl = "https://media.api-football.com/teams/33.png";
 export default function Tab(props) {
   const {type, name, id, label, content} = props;
   const {theme} = useContext(ThemeContext);
@@ -21,10 +23,17 @@ export default function Tab(props) {
         {Object.entries(content).map(([key, value]) => {
           return (
             <div className='row border-bottom' key={value}>
-              <div className='col-6 col-sm'>
+              <div className='col-6'>
                 {key[0].toUpperCase() + key.slice(1)} :{" "}
               </div>
-              <div className='col-6'> {value}</div>
+              {key !== "logo" ? (
+                <div className='col-6'> {value}</div>
+              ) : (
+                <div className='col-6'>
+                  <LogoWrapper background={value}> </LogoWrapper>
+                  {/* <Img src={value}></Img> */}
+                </div>
+              )}
             </div>
           );
         })}
