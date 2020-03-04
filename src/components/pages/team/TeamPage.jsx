@@ -1,12 +1,14 @@
 import React, {useContext, useEffect} from "react";
 import {SearchContext} from "../../../contexts/SearchContext";
+
 import Loader from "react-loader-spinner";
 import TabGroup from "../../baseComponents/tabs/TabGroup";
 import {StyledRightSideMedia, StyledLeftSideMedia, Wrapper} from "./style";
 
 import PieChart from "../../charts/PieChart";
-import LineChart from "../../charts/LineChart";
 import BarChart from "../../charts/BarChart";
+import Img from "react-image";
+import {Logo} from "./style";
 
 const TeamPage = props => {
   const {team, isLoading, statistics = {}} = useContext(SearchContext);
@@ -108,9 +110,25 @@ const TeamPage = props => {
 
   return (
     <>
-      <h3 className='text-primary text-secondary' data-testid='teampagetitle'>
-        Welcome to {team.team.name}'s page
-      </h3>
+      {/* <Img src={team.team.logo}></Img> */}
+      {/* <Logo background={team.team.logo}> </Logo> */}
+
+      <div className='media'>
+        <div className='media-body'></div>
+        <div className='media-body'></div>
+      </div>
+
+      <Wrapper>
+        <StyledRightSideMedia>
+          <Img src={team.team.logo} className='align-self-center'></Img>
+          <h4
+            className='text-center text-secondary'
+            data-testid='teampagetitle'>
+            Welcome to {team.team.name}'s page
+          </h4>
+        </StyledRightSideMedia>
+      </Wrapper>
+
       {isLoading ? (
         <Loader type='Oval' color='#00BFFF' height={100} width={100}></Loader>
       ) : (

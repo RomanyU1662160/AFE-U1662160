@@ -30,3 +30,13 @@ export const StyledLeftSideMedia = styled.div`
     color: "yellow";
   }
 `;
+
+export const Logo = styled.div`
+  min-width: 100%;
+  min-height: 100%;
+  background-color: red;
+  background: url(${props => (props.background ? props.background : "")});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+`;
