@@ -12,26 +12,96 @@ const TeamPage = props => {
   const {team, isLoading, statistics = {}} = useContext(SearchContext);
   const {goals, matches} = statistics;
 
-  const matchesChartDataset = [
+  const matchesData = [
     matches?.wins?.total,
     matches?.draws?.total,
     matches?.loses?.total
   ];
 
-  const goalsChartDataSet = [
-    goals?.for?.total.total,
+  const goalsData_for = [
+    goals?.for?.average.total,
     goals?.for?.total.away,
     goals?.for?.total.home
   ];
 
-  const matchesData = {
+  const goalsData_against = [
+    goals?.against?.total.total,
+    goals?.against?.total.away,
+    goals?.against?.total.home
+  ];
+
+  const goalsAvg_for = [
+    goals?.for?.average.home,
+    goals?.for?.average.away,
+    goals?.for?.average.total
+  ];
+  const goalsAvg_against = [
+    goals?.against?.average.home,
+    goals?.against?.average.away,
+    goals?.against?.average.total
+  ];
+
+  const matchesChartDataset = {
     labels: ["Wins", "Draws", "Loses"],
     datasets: [
       {
         label: "Matches ",
-        backgroundColor: "rgb(144, 192, 243)",
+        backgroundColor: ["#98bd9e", "#f5dd96", "#fbca93"],
         borderColor: "lightgray",
-        data: matchesChartDataset
+        data: matchesData
+      }
+    ]
+  };
+
+  const goalsChartDataSet = {
+    datasets: [
+      {
+        label: "For avg",
+        type: "line",
+        data: goalsAvg_for,
+        fill: false,
+        borderColor: "#90c0f3",
+        backgroundColor: "#90c0f3",
+        pointBorderColor: "#90c0f3",
+        pointBackgroundColor: "#EC932F",
+        pointHoverBackgroundColor: "#90c0f3",
+        pointHoverBorderColor: "#90c0f3",
+        yAxisID: "y-axis-2"
+      },
+      {
+        label: "Against avg",
+        type: "line",
+        data: goalsAvg_against,
+        fill: false,
+        borderColor: "#6c757d",
+        backgroundColor: "#6c757d",
+        pointBorderColor: "#EC932F",
+        pointBackgroundColor: "#EC932F",
+        pointHoverBackgroundColor: "#6c757d",
+        pointHoverBorderColor: "#6c757d",
+        yAxisID: "y-axis-3"
+      },
+      {
+        type: "bar",
+        label: "For",
+        data: goalsData_for,
+        fill: false,
+        backgroundColor: "#98bd9e",
+        borderColor: "#98bd9e",
+        hoverBackgroundColor: "#98bd9e",
+        hoverBorderColor: "#98bd9e",
+        yAxisID: "y-axis-1"
+      },
+      {
+        type: "bar",
+        label: "Against",
+        data: goalsData_against,
+        fill: false,
+        backgroundColor: "#f5dd96",
+        borderColor: "#98bd9e",
+        hoverBackgroundColor: "#f5dd96",
+        hoverBorderColor: "#f5dd96",
+        yAxisID: "y-axis-1"
       }
     ]
   };
@@ -49,16 +119,17 @@ const TeamPage = props => {
             <StyledRightSideMedia>
               {matches !== null ? (
                 <PieChart
-                  chartData={matchesData}
+                  chartData={matchesChartDataset}
                   options={{maintainAspectRatio: false}}></PieChart>
               ) : (
                 "Loading.."
               )}
             </StyledRightSideMedia>
+
             <StyledLeftSideMedia>
               {goals !== null ? (
                 <BarChart
-                  chartData={matchesData}
+                  chartData={goalsChartDataSet}
                   options={{maintainAspectRatio: false}}></BarChart>
               ) : (
                 "..Loading"
