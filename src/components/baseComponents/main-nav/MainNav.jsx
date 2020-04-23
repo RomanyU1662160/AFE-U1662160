@@ -8,10 +8,6 @@ const MainNav = props => {
   const themeContext = useContext(ThemeContext);
   const { theme } = themeContext;
 
-  //   useEffect( () =>{
-  //         console.log("Theme ::" , theme);
-
-  //   } )
   return (
     <StyledMainNav activeTheme={theme}>
       <NavItem title="Home"> </NavItem>
