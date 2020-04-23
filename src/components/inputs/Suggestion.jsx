@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useState } from "react";
+import React, { Fragment, useContext } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import { StyledLi } from "./style";
 import { useEffect } from "react";
@@ -27,8 +27,7 @@ const Suggestion = props => {
           className="alert border mt-2 "
           theme={theme}
           display={display}
-          onClick={() => handleSelect(suggestion.team.id)}
-        >
+          onClick={() => handleSelect(suggestion.team.id)}>
           {suggestion ? suggestion.team.name : " "}
         </StyledLi>
       </NavLink>

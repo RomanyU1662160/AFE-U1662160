@@ -1,18 +1,17 @@
-import React, {useContext, useEffect} from "react";
-import {SearchContext} from "../../../contexts/SearchContext";
+import React, { useContext } from "react";
+import { SearchContext } from "../../../contexts/SearchContext";
 
 import Loader from "react-loader-spinner";
 import TabGroup from "../../baseComponents/tabs/TabGroup";
-import {StyledRightSideMedia, StyledLeftSideMedia, Wrapper} from "./style";
+import { StyledRightSideMedia, StyledLeftSideMedia, Wrapper } from "./style";
 
 import PieChart from "../../charts/PieChart";
 import BarChart from "../../charts/BarChart";
 import Img from "react-image";
-import {Logo} from "./style";
 
 const TeamPage = props => {
-  const {team, isLoading, statistics = {}} = useContext(SearchContext);
-  const {goals, matches} = statistics;
+  const { team, isLoading, statistics = {} } = useContext(SearchContext);
+  const { goals, matches } = statistics;
 
   const matchesData = [
     matches?.wins?.total,
@@ -113,24 +112,24 @@ const TeamPage = props => {
       {/* <Img src={team.team.logo}></Img> */}
       {/* <Logo background={team.team.logo}> </Logo> */}
 
-      <div className='media'>
-        <div className='media-body'></div>
-        <div className='media-body'></div>
+      <div className="media">
+        <div className="media-body"></div>
+        <div className="media-body"></div>
       </div>
 
-      <div className='row '>
-        <div className='col'>
-          <Img src={team.team.logo} className='align-self-center'></Img>
+      <div className="row ">
+        <div className="col">
+          <Img src={team.team.logo} className="align-self-center"></Img>
           <h4
-            className='text-center text-secondary'
-            data-testid='teampagetitle'>
+            className="text-center text-secondary"
+            data-testid="teampagetitle">
             Welcome to {team.team.name}'s page
           </h4>
         </div>
       </div>
 
       {isLoading ? (
-        <Loader type='Oval' color='#00BFFF' height={100} width={100}></Loader>
+        <Loader type="Oval" color="#00BFFF" height={100} width={100}></Loader>
       ) : (
         <>
           <Wrapper>
@@ -138,7 +137,7 @@ const TeamPage = props => {
               {matches !== null ? (
                 <PieChart
                   chartData={matchesChartDataset}
-                  options={{maintainAspectRatio: false}}></PieChart>
+                  options={{ maintainAspectRatio: false }}></PieChart>
               ) : (
                 "Loading.."
               )}
@@ -148,7 +147,7 @@ const TeamPage = props => {
               {goals !== null ? (
                 <BarChart
                   chartData={goalsChartDataSet}
-                  options={{maintainAspectRatio: false}}></BarChart>
+                  options={{ maintainAspectRatio: false }}></BarChart>
               ) : (
                 "..Loading"
               )}

@@ -1,8 +1,8 @@
 import React from "react";
-import {Bar} from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 
 const BarChart = props => {
-  const {chartData} = props;
+  const { chartData } = props;
 
   const options = {
     responsive: true,
@@ -66,14 +66,14 @@ const BarChart = props => {
     }
   };
 
-  const plugins = [
-    {
-      afterDraw: (chartInstance, easing) => {
-        const ctx = chartInstance.chart.ctx;
-        ctx.fillText("Goals Chart", 500, 10);
-      }
-    }
-  ];
+  // const plugins = [
+  //   {
+  //     afterDraw: (chartInstance, easing) => {
+  //       const ctx = chartInstance.chart.ctx;
+  //       ctx.fillText("Goals Chart", 500, 10);
+  //     }
+  //   }
+  // ];
 
   return (
     <>

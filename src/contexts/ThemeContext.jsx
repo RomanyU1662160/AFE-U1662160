@@ -1,11 +1,11 @@
-import React, {createContext, useState, useEffect} from "react";
+import React, { createContext, useState, useEffect } from "react";
 import themes from "../Styles/themes";
 
 export const ThemeContext = createContext();
 
 const ThemeContextProvider = props => {
-  const {children} = props;
-  const {defaultTheme, darkTheme, primaryTheme} = themes;
+  const { children } = props;
+  const { defaultTheme, darkTheme } = themes;
   const [theme, setTheme] = useState(defaultTheme);
   const [isDefault, setIsDefault] = useState(true);
 
@@ -19,7 +19,7 @@ const ThemeContextProvider = props => {
   };
 
   return (
-    <ThemeContext.Provider value={{theme, toggleTheme, isDefault}}>
+    <ThemeContext.Provider value={{ theme, toggleTheme, isDefault }}>
       {" "}
       {children}{" "}
     </ThemeContext.Provider>

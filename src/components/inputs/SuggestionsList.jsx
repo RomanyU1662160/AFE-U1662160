@@ -1,4 +1,4 @@
-import React, { Fragment, useContext, useEffect } from "react";
+import React, { Fragment } from "react";
 import Loader from "react-loader-spinner";
 import Suggestion from "./Suggestion";
 

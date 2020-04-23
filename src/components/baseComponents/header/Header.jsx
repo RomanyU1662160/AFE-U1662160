@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, Fragment } from "react";
+import React, { useContext, Fragment } from "react";
 import { StyledHeader, Wrapper } from "./style";
 import MainNav from "../main-nav/MainNav";
 import { ThemeContext } from "../../../contexts/ThemeContext";
