@@ -17,7 +17,7 @@ export const StyledToggleThemeButton = styled.button`
   cursor: pointer;
   flex: auto;
   @media (max-width: 750px) {
-    margin-top: -10%;
+    padding: 0px 2% 0px 2%;
   }
 `;
 export const StyledGetTeamStaticsButton = styled.button`

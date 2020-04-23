@@ -14,9 +14,9 @@ const Header = props => {
 
   return (
     <Fragment>
+      <ToggleTheme />
       <Wrapper>
         <StyledHeader activeTheme={theme}>
-          <ToggleTheme />
           <MainNav> </MainNav>
         </StyledHeader>
       </Wrapper>
