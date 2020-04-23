@@ -1,7 +1,7 @@
-import React from "react";
-import {render, cleanup} from "@testing-library/react";
-import MainNav from "./src/components/baseComponents/main-nav/MainNav";
-import {ThemeContext} from "styled-components";
+// import React from "react";
+// import {render, cleanup} from "@testing-library/react";
+// import MainNav from "./src/components/baseComponents/main-nav/MainNav";
+// import {ThemeContext} from "styled-components";
 
 /*
 function Wrapper(props) {
