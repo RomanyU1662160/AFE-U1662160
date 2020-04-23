@@ -8,6 +8,7 @@ import { StyledRightSideMedia, StyledLeftSideMedia, Wrapper } from "./style";
 import PieChart from "../../charts/PieChart";
 import BarChart from "../../charts/BarChart";
 import Img from "react-image";
+import { LogoWrapper, TitleWrapper, TeamTitle, SmallTeamLogo } from "./style";
 
 const TeamPage = props => {
   const { team, isLoading, statistics = {} } = useContext(SearchContext);
@@ -110,23 +111,16 @@ const TeamPage = props => {
   return (
     <>
       {/* <Img src={team.team.logo}></Img> */}
-      {/* <Logo background={team.team.logo}> </Logo> */}
 
-      <div className="media">
-        <div className="media-body"></div>
-        <div className="media-body"></div>
-      </div>
-
-      <div className="row ">
-        <div className="col">
-          <Img src={team.team.logo} className="align-self-center"></Img>
-          <h4
-            className="text-center text-secondary"
-            data-testid="teampagetitle">
-            Welcome to {team.team.name}'s page
-          </h4>
-        </div>
-      </div>
+      <TitleWrapper>
+        <TeamTitle data-testid="teampagetitle">
+          Welcome to {team.team.name}'s page
+          <SmallTeamLogo src={team.team.logo}></SmallTeamLogo>
+        </TeamTitle>
+        <LogoWrapper>
+          <img src={team.team.logo} alt="Team-logo" />
+        </LogoWrapper>
+      </TitleWrapper>
 
       {isLoading ? (
         <Loader type="Oval" color="#00BFFF" height={100} width={100}></Loader>
