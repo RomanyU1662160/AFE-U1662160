@@ -17,8 +17,8 @@ code {
   height: 95vh;
   background-image: linear-gradient(
       to right bottom,
-      hsla(160, 24%, 61%, 0.801),
-      hsla(110, 17%, 46%, 0.801)
+      hsla(160, 21%, 25%, 0.801),
+      hsla(110, 36%, 14%, 0.801)
     ),
     url("./hero2.jpg");
   background-position: top;
