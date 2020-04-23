@@ -1,13 +1,24 @@
-import React from 'react';
+import React from "react";
 
-const AboutPage = ()=> {
-    return(
-        <>
-        <h3> About Page </h3>
-        <p> Lorem, ipsum dolor sit amet consectetur adipisicing elit. Rem architecto odio beatae ab aliquid dolorem animi sed, inventore, aperiam, cumque asperiores repudiandae distinctio cum est. Fugit beatae, sequi blanditiis maiores in ratione exercitationem, pariatur deleniti quasi repellendus quidem officia nisi quo molestias reprehenderit culpa aspernatur consequatur perspiciatis molestiae commodi illo vero? Id facilis nobis, assumenda natus, ducimus quisquam aspernatur commodi quis veniam sequi sint amet maxime ipsam corporis, voluptates iusto eum! Neque pariatur ducimus ipsa ipsam quae possimus esse nisi nesciunt, optio repudiandae. Eius quia reprehenderit necessitatibus obcaecati, animi sed eos qui sequi laboriosam quod odit fuga quas sunt, recusandae nemo, non vitae? Similique reprehenderit aliquam quos sit vel consectetur totam a est iste exercitationem? Iste minima tempora ipsa molestias illum. Sed sequi tempore sit dolor est nam enim illum, nostrum doloribus velit inventore, molestias provident natus voluptate accusamus nesciunt unde ipsum obcaecati deserunt? Culpa, non harum! Porro eaque nobis magni quas sit placeat error numquam dolorem iusto provident. Consequuntur mollitia quae quidem atque doloremque quisquam velit nobis laborum praesentium. Inventore consectetur placeat quo accusamus. Aliquam nihil fuga dignissimos debitis dolorum, et laboriosam excepturi laborum eveniet explicabo consequatur deleniti aliquid architecto minima iusto, error nesciunt ipsa placeat itaque repellat distinctio.</p>
-        </>
-    ); 
-     
-}
+const AboutPage = () => {
+  return (
+    <>
+      <div className="container-fluid header">
+        <h3 class="fading "> The Premier League Info </h3>
+        <div className="alert text-info font-weight-bold  animateToUp ">
+          The application provides information about the teams playing in the
+          Premier League (EPL)
+        </div>
 
-export default  AboutPage; 
+        <div className="alert text-info   animateToDown">
+          <p className="text-info font-weight-bold">
+            Users can use the filter search functionality to find a team and
+            view it's details .
+          </p>
+        </div>
+      </div>
+    </>
+  );
+};
+
+export default AboutPage;
