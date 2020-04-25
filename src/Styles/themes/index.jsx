@@ -1,13 +1,9 @@
-import {darkTheme} from "./darKTheme";
-import {defaultTheme} from "./defaultTheme";
-import {primaryTheme} from "./primaryTheme";
+import { darkTheme } from "./darKTheme";
+import { defaultTheme } from "./defaultTheme";
 
+const themes = {
+  darkTheme,
+  defaultTheme
+};
 
-
-const themes= {
-    darkTheme,
-    defaultTheme,
-    primaryTheme
-}
-
-export default themes; 
+export default themes;
