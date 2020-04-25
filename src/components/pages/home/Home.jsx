@@ -13,7 +13,7 @@ const Home = props => {
       <Wrapper>
         <StyledHeader className="header" activeTheme={theme}>
           <div className="logo-box">
-            <img src="../../../logo.png" alt="logo" className="logo" />
+            <img src="./../../../logo.svg" alt="logo" className="logo" />
           </div>
           <div className="text-box">
             <h1 className="heading-primary">
