@@ -23,6 +23,7 @@ function App() {
               <Route exact path="/about" component={AboutPage} />
               <Route path="/team/:id" component={TeamPage} />
             </Switch>
+            <Home> </Home>
           </ThemeContextProvider>
         </SearchProvider>
       </div>
