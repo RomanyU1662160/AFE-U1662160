@@ -27,3 +27,10 @@ To run the tests
 or
 
 `npm run test`
+
+## Working with Football API
+
+To make the the application utilize the Football_API and retrieve real data you need do the following steps :
+1- uncomment the
+`fetchTeamStatistics` in the `helpers/fetchTeamStatistics` directory
+2- `getTeamStatistics` method in `contexts/SearchContext`
