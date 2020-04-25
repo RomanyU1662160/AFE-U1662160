@@ -35,8 +35,9 @@ code {
 }
 
 .logo {
-  height: 40px;
-  border: 1px solid red;
+  height: 100px;
+  opacity: 0.4;
+  border-radius: 50px;
   background-image: url("./logo.png");
 }
 

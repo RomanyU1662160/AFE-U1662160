@@ -67,7 +67,7 @@ const SearchProvider = props => {
       : setStatistics(storedStatistics);
   };
 
-  /* Method is using the data from API 
+  /* uncomment to use the data from API 
       please uncomment the method in helpers/fetchTeamStatics.js as well
   */
 

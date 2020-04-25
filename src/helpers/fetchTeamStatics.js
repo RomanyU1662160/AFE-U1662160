@@ -19,7 +19,8 @@ export const fetchTeamStatistics = async id => {
   return teamStatistics;
 };
 
-// Calling_the_API
+// Uncomment this method to call the Football_API
+
 // export const fetchTeamStatistics = async id => {
 //   const url = `https://api-football-beta.p.rapidapi.com/teams/statistics?team=${id}&season=2019&league=39`;
 //   const res = await fetch(url, {

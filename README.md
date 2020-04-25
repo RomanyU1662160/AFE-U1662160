@@ -1,68 +1,29 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Premier League Info
 
-## Available Scripts
+## About the application
 
-In the project directory, you can run:
+The Premier League Info is a Single Page Application (SPA) developed by React.js. The application provides information about the teams playing in the Premier League (EPL). Users can use the filter search functionality to find a team and click on it to view the team’s page.
 
-### `yarn start`
+The Team’s page dynamically displays the team details. It displays the team’s logo and two charts illustrating the team’s statistics. The first chart is a line chart displaying the history of the teams’ goals. The data include the goals scored for and against the team. It also displays whether the goals have been scored in the team’s venue or away.
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The second chart is a pie chart. It simply displays the statistics for the team’s matches, the data classified into wins, draws and losses, each section displayed in a different color. Users can interact with the charts by clicking on the labels to change the chart’s view.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Moreover, the Team’s page contains more information about the team, the coach and the team’s venue. The data retrieved from a JSON file contained a mock data. The displayed in a tab group to improve the users’ experience on small devices.
 
-### `yarn test`
+## Installation
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+All you need to do is to install the dependencies
 
-### `yarn build`
+`yarn install`
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+or
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+`npm install`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To run the tests
 
-### `yarn eject`
+`yarn test`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+or
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+`npm run test`
