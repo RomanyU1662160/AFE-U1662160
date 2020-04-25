@@ -19,11 +19,11 @@ function App() {
             <Header />
             <Switch>
               <Route exact path="/home" component={Home} />
+              <Route exact path="/" component={Home} />
               <Route exact path="/search" component={SearchPage} />
               <Route exact path="/about" component={AboutPage} />
               <Route path="/team/:id" component={TeamPage} />
             </Switch>
-            <Home> </Home>
           </ThemeContextProvider>
         </SearchProvider>
       </div>
