@@ -4,7 +4,7 @@ const AboutPage = () => {
   return (
     <>
       <div className="container-fluid header">
-        <h3 class="fading "> The Premier League Info </h3>
+        <h3 className="fading "> The Premier League Info </h3>
         <div className="alert text-info font-weight-bold  animateToUp ">
           The application provides information about the teams playing in the
           Premier League (EPL)
